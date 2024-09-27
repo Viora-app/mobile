@@ -18,6 +18,10 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Viora needs access to your photo library to allow you to upload photos for creating your profile and sharing content.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Viora needs access to your camera to allow you to take photos for creating your profile.</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -31,8 +35,6 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>dots.ttf</string>
