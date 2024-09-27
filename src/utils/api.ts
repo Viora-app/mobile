@@ -93,7 +93,6 @@ export const getProfile = async (jwt: string): Promise<ProfileResponse> => {
       'Content-Type': 'application/json',
     },
   });
-  console.log('getProfile', response.data);
   return response.data;
 };
 
