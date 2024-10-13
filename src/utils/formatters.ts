@@ -1,3 +1,4 @@
+import {TOKEN_SYMBOL} from '@env';
 import BigNumber from 'bignumber.js';
 
 export const formatThousands = (num: number): string => {
@@ -23,19 +24,32 @@ export const getYear = (num: number): string => {
   return year.toString();
 };
 
-export const fromBaseToken = (
-  num: string,
-  token?: string | undefined,
-  floatingPoints: number = 8,
-): string => {
-  const formatted = BigNumber(num)
-    .dividedBy(BigNumber(1e8))
-    .toFixed(floatingPoints);
-  return token ? `${formatted} ${token}` : formatted;
+enum SupportedTokens {
+  Sol = 'SOL',
+  Usdc = 'USDC',
+}
+
+const factors: Record<SupportedTokens, BigNumber> = {
+  [SupportedTokens.Sol]: BigNumber(1e9),
+  [SupportedTokens.Usdc]: BigNumber(1),
 };
 
-export const toBaseToken = (num: string): string =>
-  BigNumber(num).multipliedBy(BigNumber(1e8)).toFixed(0);
+export const fromBaseToken = (
+  num: string | number,
+  floatingPoints: number = 8,
+  showSymbol?: boolean,
+): string => {
+  const token: SupportedTokens = TOKEN_SYMBOL;
+  const formatted = BigNumber(num)
+    .dividedBy(factors[token])
+    .toFixed(floatingPoints);
+  return showSymbol ? `${formatted} ${token}` : formatted;
+};
+
+export const toBaseToken = (num: string | number): string => {
+  const token: SupportedTokens = TOKEN_SYMBOL;
+  return BigNumber(num).multipliedBy(factors[token]).toFixed(0);
+};
 
 export const truncateAddress = (address: string): string => {
   return address.replace(/^(.{6})(.+)?(.{5})$/, '$1...$3');
