@@ -13,8 +13,9 @@ import Contribute from '../Forms/Project/Contribute';
 import PostExclusiveContentsForm from '../Forms/ExclusiveContents/create';
 import successImage from '../../assets/images/success.png';
 import errorImage from '../../assets/images/error.png';
+import {ProjectStatus} from '../Projects/types';
 
-const EditProject = ({projectId, ProjectStatus}) => {
+const EditProject = ({projectId}: {projectId: string}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();
@@ -86,7 +87,7 @@ const EditProject = ({projectId, ProjectStatus}) => {
   );
 };
 
-const SupportProject = ({projectId}) => {
+const SupportProject = ({projectId}: {projectId: string}) => {
   const styles = useTheme(themedStyles);
   const {show} = useModal();
   const support = () => {
@@ -140,12 +141,12 @@ const PublishedProjectOwner = () => {
       <Button
         title="Share"
         theme={ButtonThemes.secondary}
-        onPress={() => Linking.openURL(`https://viora.com/${projectId}`)}
+        onPress={() => Linking.openURL('https://viora.com/')}
       />
     </View>
   );
 };
-const SuccessfulProjectOwner = ({projectId, ProjectStatus}) => {
+const SuccessfulProjectOwner = ({projectId}: {projectId: string}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();

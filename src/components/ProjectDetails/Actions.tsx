@@ -62,7 +62,7 @@ const Actions: FC<ActionsProps> = ({
   //   ownerId === accountId
   return (
     <View>
-      {editable && <EditProject projectId={projectId} ProjectStatus={status} />}
+      {editable && <EditProject projectId={projectId} />}
 
       {published && ownerId === accountId ? <PublishedProjectOwner /> : null}
 
@@ -70,8 +70,8 @@ const Actions: FC<ActionsProps> = ({
         <SupportProject projectId={projectId} />
       ) : null}
 
-      {true && ownerId === accountId ? (
-        <SuccessfulProjectOwner projectId={projectId} ProjectStatus={status} />
+      {succeeded && ownerId === accountId ? (
+        <SuccessfulProjectOwner projectId={projectId} />
       ) : null}
 
       {succeeded && ownerId === accountId ? (
@@ -79,6 +79,8 @@ const Actions: FC<ActionsProps> = ({
       ) : null}
 
       {failing && ownerId === accountId ? <FailingProjectOwner /> : null}
+
+      {/* {failing && ownerId !== accountId ? <FailingProjectcontributor projectId={projectId} /> : null} */}
     </View>
   );
 };
