@@ -12,7 +12,7 @@ import Gallery from './Gallery';
 import Deadline from './Deadline';
 import Artist from './Artist';
 import Actions from './Actions';
-import NotFound from './NotFound';
+import NotFound from '../NotFound/Screen';
 import Loading from './Loading';
 import FundingProgress from './FundingProgress';
 import {ProjectDetailsProps} from './types';
