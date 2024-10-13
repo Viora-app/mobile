@@ -43,6 +43,7 @@
     "@react-native/typescript-config": "0.74.85",
     "@types/qs": "^6.9.15",
     "@types/react": "^18.2.6",
+    "@types/react-native-dotenv": "^0.2.2",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",

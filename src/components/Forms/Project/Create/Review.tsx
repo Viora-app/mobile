@@ -1,10 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {View, Keyboard} from 'react-native';
+import {TOKEN_SYMBOL} from '@env';
 
 import {useTheme} from '../../../../hooks/useTheme';
 import {useModal} from '../../../../hooks/useModal';
 import {usePostData} from '../../../../hooks/useQuery';
 import {FetchStatus} from '../../../../config/types';
+import {toBaseToken} from '../../../../utils/formatters';
 import {finalMessages} from '../../../../utils/modal';
 import {ButtonThemes} from '../../../Elements/Button/types';
 import {ENDPOINTS} from '../../../../config/endpoints';
@@ -30,7 +32,13 @@ const CreateProjectReview = ({data}: CreateProjectReviewProps) => {
     setIsSubmitted(true);
     Keyboard.dismiss();
     try {
-      await mutation.mutateAsync({data});
+      await mutation.mutateAsync({
+        data: {
+          ...data,
+          soft_goal: toBaseToken(data.soft_goal ?? ''),
+          hard_goal: toBaseToken(data.hard_goal ?? ''),
+        },
+      });
     } catch (e) {
       console.error('Error creating project:', e);
     }
@@ -45,9 +53,15 @@ const CreateProjectReview = ({data}: CreateProjectReviewProps) => {
     }
   }, [mutation, onDone]);
 
+  const formattedValue = {
+    ...data,
+    soft_goal: `${data.soft_goal} ${TOKEN_SYMBOL}`,
+    hard_goal: `${data.hard_goal} ${TOKEN_SYMBOL}`,
+  };
+
   return (
     <View style={styles.reviewWrapper}>
-      <FormSummary data={data} />
+      <FormSummary data={formattedValue} />
       <View style={styles.actionBar}>
         <Button
           title={isSubmitted ? 'Updating' : 'Continue'}

@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import {View, Text, ImageBackground} from 'react-native';
-import {TOKEN_SYMBOL} from '@env';
 
 import {useTheme} from '../../hooks/useTheme';
 import {FundingProgressProps} from './types';
 import themedStyles from './styles';
 import stripePattern from '../../assets/images/stripespattern.png';
+import {fromBaseToken} from '../../utils/formatters';
 
 const FundingProgress: FC<FundingProgressProps> = ({
   currentFunding,
@@ -31,20 +31,18 @@ const FundingProgress: FC<FundingProgressProps> = ({
         </View>
         <View style={styles.goalsWrapper}>
           <View style={[styles.row, styles.alignCenter]}>
-            <Text style={[styles.small, styles.reassureMild]}>Goal:</Text>
-            <Text
-              style={[
-                styles.large,
-                styles.reassureMild,
-              ]}>{` ${softGoal} ${TOKEN_SYMBOL}`}</Text>
+            <Text style={[styles.small, styles.reassureMild]}>Goal:&nbsp;</Text>
+            <Text style={[styles.large, styles.reassureMild]}>
+              {fromBaseToken(softGoal, 2, true)}
+            </Text>
           </View>
           <View style={[styles.row, styles.alignCenter]}>
-            <Text style={[styles.small, styles.zero]}>Max acceptable:</Text>
-            <Text
-              style={[
-                styles.base,
-                styles.zero,
-              ]}>{` ${hardGoal} ${TOKEN_SYMBOL}`}</Text>
+            <Text style={[styles.small, styles.zero]}>
+              Max acceptable:&nbsp;
+            </Text>
+            <Text style={[styles.base, styles.zero]}>
+              {fromBaseToken(hardGoal, 2, true)}
+            </Text>
           </View>
         </View>
       </View>

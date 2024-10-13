@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import {View, Text, Image} from 'react-native';
 import {Link} from '@react-navigation/native';
-import {TOKEN_SYMBOL} from '@env';
 
 import {ENDPOINTS} from '../../config/endpoints';
 import {Routes} from '../../config/routes';
@@ -9,6 +8,7 @@ import {useTheme} from '../../hooks/useTheme';
 import {useAccount} from '../../hooks/useAccount';
 import {useGetData} from '../../hooks/useQuery';
 import {getSmallestSize} from '../../utils/image';
+import {fromBaseToken} from '../../utils/formatters';
 import {ImageFormats} from '../Projects/types';
 import SectionHeader from '../SectionHeader';
 import themedStyles from './styles';
@@ -41,10 +41,9 @@ const Contribution: FC<ContributionProps> = ({data}) => {
             <Text style={styles.semi}>
               {data.attributes.contribution_tier.data.attributes.name}
             </Text>
-            <Text
-              style={
-                styles.semi
-              }>{`${data.attributes.amount} ${TOKEN_SYMBOL}`}</Text>
+            <Text style={styles.semi}>
+              {fromBaseToken(data.attributes.amount, 2, true)}
+            </Text>
           </View>
           <Text style={[styles.base, styles.mild]}>
             {data.attributes.project.data.attributes.name}
