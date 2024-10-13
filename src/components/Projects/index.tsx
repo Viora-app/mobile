@@ -5,6 +5,7 @@ import {ENDPOINTS} from '../../config/endpoints';
 import {useTheme} from '../../hooks/useTheme';
 import {useGetData} from '../../hooks/useQuery';
 import {calculateItemsToDisplay} from '../../utils/helpers';
+import ScreenNotFound from '../NotFound/Screen';
 import {ProjectsHeader} from '../SectionHeader/Named';
 import ListFooter from '../ListFooter';
 import Project from './Project';
@@ -33,6 +34,10 @@ const Projects = () => {
     const calculatedItemsToDisplay = calculateItemsToDisplay(height);
     setDisplaySize(calculatedItemsToDisplay);
   };
+
+  if (!data?.data.length) {
+    return <ScreenNotFound />;
+  }
 
   return (
     <View onLayout={handleLayout} style={styles.wrapper}>
