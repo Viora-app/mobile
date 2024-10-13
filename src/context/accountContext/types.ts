@@ -1,15 +1,25 @@
+import {ImageFormats} from '../../components/Projects/types';
+
 export interface Profile {
   first_name: string;
   last_name: string;
   avatar_url: string;
   avatar: {
-    url: string;
+    formats: ImageFormats;
   } | null;
   points: number;
+  address: string;
 }
 
 export type ProfileResponse = Profile & {
   id: number;
+};
+
+export type WalletResponse = {
+  id: number;
+  attributes: {
+    address: string;
+  };
 };
 
 export type ProfileMerged = Profile & {

@@ -96,6 +96,16 @@ export const getProfile = async (jwt: string): Promise<ProfileResponse> => {
   return response.data;
 };
 
+export const getWalletAddress = async (jwt: string): Promise<string> => {
+  const response = await api.get('/wallets/me', {
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.data.attributes.address;
+};
+
 export const getSongFromPlatform = async (
   platform: string,
   id: string,
