@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Image} from 'react-native';
-import {API_URL} from '@env';
 
 import {useTheme} from '../../hooks/useTheme';
 import {useAccount} from '../../hooks/useAccount';
@@ -8,15 +7,18 @@ import {useModal} from '../../hooks/useModal';
 import {Icon, ImagePicker} from '../Elements';
 import {finalMessages} from '../../utils/modal';
 import {FetchStatus} from '../../config/types';
+import {getSmallestSize} from '../../utils/image';
+import {ImageFormats} from '../Projects/types';
 import themedStyles from './styles';
 import type {AvatarProps, FileEvent} from './types';
-import placeholderMini from '../../assets/images/gallerymini.png';
 
-const Avatar = ({style, data}: AvatarProps) => {
+const Avatar = ({style}: AvatarProps) => {
   const styles = useTheme(themedStyles);
-  const {update} = useAccount();
+  const {update, account} = useAccount();
   const {show} = useModal();
-  const image = data ? {uri: `${API_URL}${data.url}`} : placeholderMini;
+  const image = getSmallestSize(
+    account?.avatar?.formats ?? ({} as ImageFormats),
+  );
 
   const onSelectImage = async (file: FileEvent) => {
     // @todo add loading state
@@ -28,7 +30,6 @@ const Avatar = ({style, data}: AvatarProps) => {
     });
 
     formData.append('data', JSON.stringify({}));
-    // @ts-expect-error Form data is different for file uploads
     const result = await update(formData);
 
     show(
@@ -42,10 +43,15 @@ const Avatar = ({style, data}: AvatarProps) => {
   };
 
   return (
-    <View style={[styles.wrapper, style]}>
+    <View style={[styles.avatarWrapper, style]}>
       <ImagePicker onSelectImage={onSelectImage}>
         <Image source={image} style={styles.avatar} />
-        <Icon name="feather" size={32} style={styles.editIcon} color="#fff" />
+        <Icon
+          name="feather"
+          size={32}
+          style={styles.avatarEditIcon}
+          color="#fff"
+        />
       </ImagePicker>
     </View>
   );

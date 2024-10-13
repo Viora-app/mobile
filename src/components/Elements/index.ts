@@ -5,3 +5,4 @@ export {default as CheckBox} from './CheckBox';
 export {default as IconButton} from './IconButton';
 export {default as Input} from './Input';
 export {default as ImagePicker} from './ImagePicker';
+export {default as SafeArea} from './SafeArea';

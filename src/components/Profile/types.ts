@@ -30,6 +30,16 @@ export interface ContributionProps {
   data: Contribution;
 }
 
-export interface ContributionsProps {
-  data: Contribution[];
+export interface AvatarProps {
+  style?: object;
+}
+
+export interface FileEvent {
+  uri: string;
+  name: string;
+  type: string;
+}
+
+export interface WalletProps {
+  style?: object;
 }

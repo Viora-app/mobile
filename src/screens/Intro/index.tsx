@@ -1,17 +1,15 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
 import Carousel from '../../components/Carousel';
 import {useNavigation} from '@react-navigation/native';
 
 import {Routes} from '../../config/routes';
 import {colors} from '../../config/stylesGuides';
+import {SafeArea} from '../../components/Elements';
 import IntroContent from '../../components/IntroContent';
 import whyImage from '../../assets/images/why.png';
 import howImage from '../../assets/images/how.png';
 import whatImage from '../../assets/images/what.png';
 import corpsImage from '../../assets/images/corps.png';
-import {useTheme} from '../../hooks/useTheme';
-import themedStyles from './styles';
 import {usePresets} from '../../hooks/usePresets';
 
 const entries = [
@@ -48,7 +46,6 @@ export const CURRENT_INTRO_VERSION = '0.1.0';
 const IntroScreen = () => {
   const {presets, storePresets} = usePresets();
   const navigation = useNavigation();
-  const styles = useTheme(themedStyles);
 
   useEffect(() => {
     if (presets.visitedIntroVersion >= CURRENT_INTRO_VERSION) {
@@ -61,9 +58,9 @@ const IntroScreen = () => {
   };
 
   return (
-    <View style={styles.screenContainer}>
+    <SafeArea>
       <Carousel data={entries} content={IntroContent} onEnd={onEnd} />
-    </View>
+    </SafeArea>
   );
 };
 
