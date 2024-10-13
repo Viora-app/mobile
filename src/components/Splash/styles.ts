@@ -2,17 +2,17 @@ import {Themes} from '../../context/presetsContext/types';
 import {colors} from '../../config/stylesGuides';
 
 const styles = (theme: Themes) => ({
-  splashContainer: {
+  container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors[theme].secondaryStrong,
   },
-  splashImageContainer: {
+  imageContainer: {
     height: 100,
     width: 312,
   },
-  splashLogo: {
+  logo: {
     height: '100%',
     width: '100%',
   },

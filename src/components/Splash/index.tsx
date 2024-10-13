@@ -9,8 +9,10 @@ const Splash = () => {
   const styles = useTheme(themedStyles);
 
   return (
-    <View style={styles.splashImageContainer}>
-      <Image style={styles.splashLogo} source={appLogo} resizeMode="cover" />
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image style={styles.logo} source={appLogo} resizeMode="cover" />
+      </View>
     </View>
   );
 };
