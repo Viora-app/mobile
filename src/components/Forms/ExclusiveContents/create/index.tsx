@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import {View, Keyboard, ScrollView, Dimensions} from 'react-native';
 
 import {useTheme} from '../../../../hooks/useTheme';
@@ -13,7 +13,7 @@ import {schema} from './schema';
 import themedStyles from './styles';
 import PostExclusiveContentsReview from './Review';
 
-const PostExclusiveContentsForm = ({style, projectId}: PostExclusiveContentsFormProps) => {
+const PostExclusiveContentsForm: FC<PostExclusiveContentsFormProps> = ({style, projectId}) => {
   const [data, setData] = useState<Partial<ProjectAttrs>>({
     name: '',
     description: '',

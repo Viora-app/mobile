@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {View, Keyboard} from 'react-native';
 
 import {useTheme} from '../../../../hooks/useTheme';
@@ -13,9 +13,9 @@ import {Button} from '../../../Elements';
 import type {PostExclusiveContentsReviewProps, Feedback} from './types';
 import themedStyles from './styles';
 
-const PostExclusiveContentsReview = ({
+const PostExclusiveContentsReview: FC<PostExclusiveContentsReviewProps> = ({
   data,
-}: PostExclusiveContentsReviewProps) => {
+}) => {
   const {show} = useModal();
   const styles = useTheme(themedStyles);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,7 +34,7 @@ const PostExclusiveContentsReview = ({
     try {
       await mutation.mutateAsync({data});
     } catch (e) {
-      console.error('Error creating project:', e);
+      console.error('Error creating exclusive content:', e);
     }
   };
 
@@ -52,7 +52,7 @@ const PostExclusiveContentsReview = ({
       <FormSummary data={data} />
       <View style={styles.actionBar}>
         <Button
-          title={isSubmitted ? 'Updating' : 'Continue'}
+          title={isSubmitted ? 'Updating' : 'Create'}
           theme={ButtonThemes.primary}
           onPress={onSubmit}
           disabled={isSubmitted}
