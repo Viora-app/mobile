@@ -1,21 +1,18 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {View, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import appLogo from '../../assets/images/IconText.png';
+import type {Timeout} from '../../config/types';
 import {Routes} from '../../config/routes';
 import {usePresets} from '../../hooks/usePresets';
 import {useAccount} from '../../hooks/useAccount';
-import type {Timeout} from '../../config/types';
+import {SafeArea} from '../../components/Elements';
+import Splash from '../../components/Splash';
 import {CURRENT_INTRO_VERSION} from '../Intro';
-import {useTheme} from '../../hooks/useTheme';
-import themedStyles from './styles';
 
 const SplashScreen = () => {
   const {presets} = usePresets();
   const navigation = useNavigation();
   const timeout = useRef<Timeout>();
-  const styles = useTheme(themedStyles);
   const {account} = useAccount();
   const [isNavigated, setIsNavigated] = useState(false);
 
@@ -39,15 +36,9 @@ const SplashScreen = () => {
   useEffect(() => () => clearTimeout(timeout.current), []);
 
   return (
-    <View style={styles.splashContainer}>
-      <View style={styles.splashImageContainer}>
-        <Image
-          style={styles.splashLogo}
-          source={appLogo}
-          resizeMode="cover"
-        />
-      </View>
-    </View>
+    <SafeArea>
+      <Splash />
+    </SafeArea>
   );
 };
 

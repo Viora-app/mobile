@@ -2,7 +2,13 @@ import React, {createContext, useEffect, useState, ReactNode} from 'react';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {USER_CREDENTIALS} from '../../config/constants';
 import {ENDPOINTS} from '../../config/endpoints';
-import {authenticate, register, getProfile, patchData} from '../../utils/api';
+import {
+  authenticate,
+  register,
+  getProfile,
+  patchData,
+  getWalletAddress,
+} from '../../utils/api';
 import {MapObjectConfig} from '../../utils/types';
 import {mapObject} from '../../utils/convertors';
 import type {
@@ -40,6 +46,7 @@ const AccountProvider = ({children}: {children: ReactNode}) => {
   const fetchAndMergeProfile = async (jwt: string) => {
     try {
       const response = await getProfile(jwt);
+      const address = await getWalletAddress(jwt);
       const config = [
         'first_name',
         'last_name',
@@ -52,6 +59,7 @@ const AccountProvider = ({children}: {children: ReactNode}) => {
       setAccount((prevAccount: Account | null) => ({
         ...((prevAccount as Account) ?? {}),
         ...(profile ?? {}),
+        address,
       }));
       await EncryptedStorage.setItem(
         USER_CREDENTIALS,
@@ -142,6 +150,8 @@ const AccountProvider = ({children}: {children: ReactNode}) => {
       await fetchAndMergeProfile(account?.jwt ?? '');
     }
   };
+
+  console.log(account?.jwt);
 
   return (
     <AccountContext.Provider

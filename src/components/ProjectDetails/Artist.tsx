@@ -1,22 +1,15 @@
-import React, {FC, useCallback, useEffect} from 'react';
+import React, {FC, useCallback} from 'react';
 import {View, Text, Image, TouchableHighlight, Linking} from 'react-native';
-import {API_URL} from '@env';
 
 import {ENDPOINTS} from '../../config/endpoints';
 import {useGetData} from '../../hooks/useQuery';
 import {useTheme} from '../../hooks/useTheme';
 import {ArtistProps} from './types';
 import themedStyles from './styles';
-import instagram from '../../assets/images/instagram.png';
-import twitter from '../../assets/images/twitter.png';
-import twitch from '../../assets/images/twitch.png';
-import placeholderMini from '../../assets/images/gallerymini.png';
-
-const params = {
-  include: {
-    images: ['*'],
-  },
-};
+import instagramIcon from '../../assets/images/instagram.png';
+import xIcon from '../../assets/images/twitter.png';
+import twitchIcon from '../../assets/images/twitch.png';
+import {getSmallestSize} from '../../utils/image';
 
 enum SocialPlatforms {
   Instagram = 'instagram',
@@ -24,28 +17,41 @@ enum SocialPlatforms {
   Twitch = 'twitch',
 }
 
-const platforms: Record<SocialPlatforms, string> = {
-  instagram: 'https://instagram.com/',
-  twitter: 'https://x.com/',
-  twitch: 'https://twitch.com/',
-};
-
 const Artist: FC<ArtistProps> = ({id}) => {
   const styles = useTheme(themedStyles);
-  const {data} = useGetData(`${ENDPOINTS.PROFILES}/${id}`, params);
-  const image = data?.avatar
-    ? {uri: `${API_URL}${data?.avatar?.url}`}
-    : placeholderMini;
+  const params = {
+    include: {
+      avatar: ['*'],
+    },
+    filters: {users_permissions_user: id},
+  };
+  const {data} = useGetData(ENDPOINTS.PROFILES, params);
 
   const openPlatform = useCallback(
     (platform: SocialPlatforms) => () => {
-      // @todo incorporate username
+      const {instagram, twitter, twitch} = data?.data[0].attributes ?? {};
+      const platforms: Record<SocialPlatforms, string> = {
+        instagram: `https://instagram.com/${instagram}`,
+        twitter: `https://x.com/${twitter}`,
+        twitch: `https://twitch.com/${twitch}`,
+      };
       Linking.openURL(platforms[platform]).catch(err => {
         console.error(`Error visiting ${platform}`, err);
       });
     },
-    [],
+    [data?.data],
   );
+
+  const {
+    first_name,
+    last_name,
+    avatar = {},
+    instagram,
+    twitter,
+    twitch,
+  } = data?.data[0].attributes ?? {};
+  const image = getSmallestSize(avatar?.data?.attributes.formats ?? {});
+  const name = [first_name, last_name].join(' ') || "What's his face?";
 
   return (
     <View style={[styles.artistWrapper, styles.spacer]}>
@@ -53,28 +59,30 @@ const Artist: FC<ArtistProps> = ({id}) => {
         <View style={styles.artistAvatarWrapper}>
           <Image source={image} style={styles.artistAvatar} />
         </View>
-        <Text
-          style={[
-            styles.large,
-            styles.artistName,
-          ]}>{`${data?.first_name} ${data?.last_name}`}</Text>
+        <Text style={[styles.large, styles.artistName]}>{name}</Text>
       </View>
       <View style={[styles.row, styles.socialLinks]}>
-        <TouchableHighlight
-          style={styles.socialLink}
-          onPress={openPlatform(SocialPlatforms.Instagram)}>
-          <Image source={instagram} style={styles.socialIcon} />
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={styles.socialLink}
-          onPress={openPlatform(SocialPlatforms.Twitch)}>
-          <Image source={twitch} style={styles.socialIcon} />
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={styles.socialLink}
-          onPress={openPlatform(SocialPlatforms.Twitter)}>
-          <Image source={twitter} style={styles.socialIcon} />
-        </TouchableHighlight>
+        {instagram && (
+          <TouchableHighlight
+            style={styles.socialLink}
+            onPress={openPlatform(SocialPlatforms.Instagram)}>
+            <Image source={instagramIcon} style={styles.socialIcon} />
+          </TouchableHighlight>
+        )}
+        {twitch && (
+          <TouchableHighlight
+            style={styles.socialLink}
+            onPress={openPlatform(SocialPlatforms.Twitch)}>
+            <Image source={twitchIcon} style={styles.socialIcon} />
+          </TouchableHighlight>
+        )}
+        {twitter && (
+          <TouchableHighlight
+            style={styles.socialLink}
+            onPress={openPlatform(SocialPlatforms.Twitter)}>
+            <Image source={xIcon} style={styles.socialIcon} />
+          </TouchableHighlight>
+        )}
       </View>
     </View>
   );

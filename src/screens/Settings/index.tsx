@@ -1,17 +1,15 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {View} from 'react-native';
 
 import {Routes} from '../../config/routes';
 import {usePresets} from '../../hooks/usePresets';
 import {useModal} from '../../hooks/useModal';
+import {SafeArea} from '../../components/Elements';
 import Option from '../../components/Elements/Option';
 import SelectTheme from '../../components/SelectTheme';
 import SectionHeader from '../../components/SectionHeader';
 import About from '../../components/About';
 import {useAccount} from '../../hooks/useAccount';
-import {useTheme} from '../../hooks/useTheme';
-import themedStyles from './styles';
 
 const config = {
   backup: {
@@ -39,7 +37,6 @@ const SettingsScreen = () => {
   const {presets} = usePresets();
   const {show} = useModal();
   const navigation = useNavigation();
-  const styles = useTheme(themedStyles);
   const {signOut} = useAccount();
   const theme = THEME_TITLES[presets.theme];
 
@@ -65,16 +62,15 @@ const SettingsScreen = () => {
   };
 
   return (
-    <View style={[styles.screenContainer, styles.settingsScreen]}>
-      <SectionHeader title="Account" style={styles.sectionHeader} />
-      {/* <Option title="Backup" onPress={backup} /> */}
+    <SafeArea>
+      <SectionHeader title="Account" />
       <Option title="Connect" state="Coming soon" onPress={connect} />
-      <SectionHeader title="Other settings" style={styles.sectionHeader} />
+      <SectionHeader title="Other settings" />
       <Option title="Theme" state={theme} onPress={setTheme} />
       <Option title="Terms of use" href="https://viora.app/terms" />
       <Option title="About" onPress={showAbout} />
       <Option title="Logout" onPress={Logout} icon="logout" />
-    </View>
+    </SafeArea>
   );
 };
 

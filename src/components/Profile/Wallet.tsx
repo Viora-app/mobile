@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import {NETWORK_NAME} from '@env';
 
 import {Themes} from '../../context/presetsContext/types';
 import {fonts} from '../../config/stylesGuides';
@@ -26,19 +27,26 @@ const Wallet = ({style}: WalletProps) => {
     .join(' ');
 
   return (
-    <View style={[styles.wrapper, style]}>
+    <View style={[styles.walletWrapper, style]}>
       <Image source={carrots[presets.theme]} />
-      <View style={styles.info}>
-        <View style={styles.balanceContainer}>
-          <Text style={[fonts.base, styles.label]}>Points:</Text>
-          <Text style={[fonts.h1, styles.balance]}>{account?.points ?? 0}</Text>
-        </View>
+      <View style={styles.walletInfo}>
         {fullName.length ? (
-          <View style={styles.addressContainer}>
-            <Text style={[fonts.base, styles.label]}>Name:</Text>
-            <Text style={[fonts.h3, styles.address]}>{fullName}</Text>
+          <View style={styles.walletContainer}>
+            <Text style={[fonts.h2, styles.address]}>{fullName}</Text>
           </View>
         ) : null}
+        <View style={styles.walletContainer}>
+          <Text style={[fonts.base, styles.label]}>Points</Text>
+          <Text style={[fonts.h1, styles.points]}>{account?.points ?? 0}</Text>
+        </View>
+        <View style={styles.walletContainer}>
+          <Text style={[fonts.base, styles.label]}>{`${
+            NETWORK_NAME || ''
+          } Wallet Address`}</Text>
+          <Text style={[fonts.h3, styles.balance, styles.address]}>
+            {account?.address ?? 'Loading'}
+          </Text>
+        </View>
       </View>
     </View>
   );

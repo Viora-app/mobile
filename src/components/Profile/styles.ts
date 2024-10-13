@@ -109,6 +109,79 @@ const styles = (theme: Themes) => ({
     paddingVertical: 3,
     flex: 1,
   },
+  avatarWrapper: {
+    width: boxes.avatarSize,
+    height: boxes.avatarSize,
+    borderRadius: boxes.radiusExtreme,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  avatar: {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    zIndex: 1,
+  },
+  avatarEditIcon: {
+    position: 'absolute',
+    zIndex: 2,
+    right: 10,
+    bottom: 5,
+    borderRadius: boxes.radiusMedium,
+    overflow: 'hidden',
+  },
+  profileDetails: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    flexWrap: 'nowrap',
+    paddingTop: boxes.paddingMedium,
+    marginBottom: boxes.paddingSmall,
+  },
+  walletWrapper: {
+    width: '100%',
+    paddingHorizontal: boxes.paddingMedium,
+    alignItems: 'center',
+    marginTop: boxes.paddingMedium,
+  },
+  walletInfo: {
+    flex: 1,
+    width: '100%',
+    paddingVertical: boxes.paddingSmall,
+    backgroundColor: colors[theme].neutralZero,
+    borderRadius: boxes.radiusLarge,
+  },
+  copied: {
+    position: 'absolute',
+    top: boxes.paddingMedium - 1,
+    right: boxes.paddingMedium,
+    color: colors[theme].primaryStrong,
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  walletLabel: {
+    color: colors[theme].neutralMild,
+    paddingBottom: boxes.paddingSmall,
+    textAlign: 'center',
+  },
+  walletContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: boxes.paddingSmall,
+  },
+  address: {
+    color: colors[theme].primaryStrong,
+    letterSpacing: 1,
+    textAlign: 'center',
+  },
+  points: {
+    color: colors[theme].primaryStrong,
+    textAlign: 'center',
+  },
 });
 
 export default styles;

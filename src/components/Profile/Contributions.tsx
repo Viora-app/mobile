@@ -3,12 +3,16 @@ import {View, Text, Image} from 'react-native';
 import {Link} from '@react-navigation/native';
 import {TOKEN_SYMBOL} from '@env';
 
-import {useTheme} from '../../hooks/useTheme';
+import {ENDPOINTS} from '../../config/endpoints';
 import {Routes} from '../../config/routes';
+import {useTheme} from '../../hooks/useTheme';
+import {useAccount} from '../../hooks/useAccount';
+import {useGetData} from '../../hooks/useQuery';
 import {getSmallestSize} from '../../utils/image';
 import {ImageFormats} from '../Projects/types';
+import SectionHeader from '../SectionHeader';
 import themedStyles from './styles';
-import type {ContributionProps, ContributionsProps} from './types';
+import type {ContributionProps, Contribution} from './types';
 
 const Contribution: FC<ContributionProps> = ({data}) => {
   const styles = useTheme(themedStyles);
@@ -52,12 +56,25 @@ const Contribution: FC<ContributionProps> = ({data}) => {
 };
 
 // @todo implement loading state
-const Contributions: FC<ContributionsProps> = ({data}) => {
+const Contributions: FC = () => {
   const styles = useTheme(themedStyles);
+  const {account} = useAccount();
+  const {data} = useGetData(ENDPOINTS.CONTRIBUTIONS, {
+    filters: {users_permissions_user: account?.id},
+    include: {
+      project: ['*'],
+      contribution_tier: ['*'],
+    },
+  });
+
+  const contributions: Contribution[] = data?.data ?? [];
 
   return (
     <View style={[styles.contributions, styles.column]}>
-      {data.map(item => (
+      {contributions.length > 0 && (
+        <SectionHeader title="Contributions" style={styles.sectionHeader} />
+      )}
+      {contributions.map(item => (
         <Contribution data={item} key={item.id} />
       ))}
     </View>

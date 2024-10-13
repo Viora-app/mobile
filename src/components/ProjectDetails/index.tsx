@@ -56,6 +56,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
       // planned_release_date, @todo design this
     },
   } = data?.data as Project;
+  const artistId = data?.data?.attributes.users_permissions_user.data.id;
 
   return (
     <ScrollView style={styles.container}>
@@ -76,7 +77,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
       </Text>
       <Deadline date={deadline} />
       <Text style={[styles.medium, styles.spacer]}>{description}</Text>
-      <Artist id={id} />
+      <Artist id={artistId} />
       <Text style={[styles.semi, styles.spacer]}>
         By supporting her, you're not just funding the music—you’re becoming a
         part of the creative journey!
