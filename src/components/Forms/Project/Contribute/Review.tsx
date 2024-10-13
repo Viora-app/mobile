@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
 import {View} from 'react-native';
+import {TOKEN_SYMBOL} from '@env';
 
 import {FetchStatus} from '../../../../config/types';
 import {ENDPOINTS} from '../../../../config/endpoints';
@@ -7,6 +8,7 @@ import {useTheme} from '../../../../hooks/useTheme';
 import {usePostData} from '../../../../hooks/useQuery';
 import {useModal} from '../../../../hooks/useModal';
 import {finalMessages} from '../../../../utils/modal';
+import {toBaseToken} from '../../../../utils/formatters';
 import {Button} from '../../../Elements';
 import FormSummary from '../../../FormElements/GenericSummary';
 import {ButtonThemes} from '../../../Elements/Button/types';
@@ -28,7 +30,7 @@ const ContributionReview: FC<ContributionReviewProps> = ({
     await mutation.mutate({
       project: String(projectId),
       contribution_tier: String(id),
-      amount: data.amount,
+      amount: toBaseToken(data.amount),
     });
   };
 
@@ -48,9 +50,14 @@ const ContributionReview: FC<ContributionReviewProps> = ({
     }
   }, [mutation, onDone]);
 
+  const formattedValue = {
+    ...data,
+    amount: `${data.amount} ${TOKEN_SYMBOL}`,
+  };
+
   return (
     <View style={styles.contributionReview}>
-      <FormSummary data={data} />
+      <FormSummary data={formattedValue} />
       <Button
         title="Pay now"
         theme={ButtonThemes.primary}

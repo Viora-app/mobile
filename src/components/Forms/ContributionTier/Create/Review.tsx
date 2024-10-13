@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {View, Keyboard} from 'react-native';
+import {TOKEN_SYMBOL} from '@env';
 
 import {useTheme} from '../../../../hooks/useTheme';
 import {useModal} from '../../../../hooks/useModal';
@@ -53,9 +54,14 @@ const CreateProjectReview = ({
     }
   }, [mutation, onDone]);
 
+  const formattedValue = {
+    ...data,
+    amount: `${data.amount} ${TOKEN_SYMBOL}`,
+  };
+
   return (
     <View style={styles.reviewWrapper}>
-      <FormSummary data={data} />
+      <FormSummary data={formattedValue} />
       <View style={styles.actionBar}>
         <Button
           title={isSubmitted ? 'Updating' : 'Continue'}

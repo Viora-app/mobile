@@ -5,7 +5,13 @@ export const schema = {
   description: (value: any) => typeof value === 'string' && value.length >= 140,
   project_type: /(single|EP|Album|MusicVideo)/,
   planned_release_date: /\d{4}\-\d{2}\-\d{2}$/,
-  soft_goal: (value: any) => typeof value === 'number' && value > 0,
+  soft_goal: (value: any) => {
+    const parsedValue = parseFloat(value);
+    return !isNaN(parsedValue) && isFinite(parsedValue);
+  },
   deadline: /\d{4}\-\d{2}\-\d{2}$/,
-  hard_goal: (value: any) => typeof value === 'number' && value > 0,
+  hard_goal: (value: any) => {
+    const parsedValue = parseFloat(value);
+    return !isNaN(parsedValue) && isFinite(parsedValue);
+  },
 };

@@ -1,5 +1,5 @@
 import {SongAttributes, FetchStatus} from '../../../../config/types';
-import {ProjectAttrs} from '../../../Projects/types';
+import {ContributionTierAttrs} from '../../../Projects/types';
 
 export interface ContributionTier {
   style?: object;
@@ -7,7 +7,7 @@ export interface ContributionTier {
 }
 
 export interface CreateContributionTierReviewProps {
-  data: Partial<ProjectAttrs>;
+  data: Partial<ContributionTierAttrs>;
   project: string;
 }
 

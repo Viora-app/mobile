@@ -22,8 +22,8 @@ const CreateProjectForm = ({style}: CreateProjectFormProps) => {
     project_type: ProjectType.Single,
     planned_release_date: '',
     soft_goal: 0,
-    deadline: '',
     hard_goal: 0,
+    deadline: '',
   });
   const {show} = useModal();
   const styles = useTheme(themedStyles);
@@ -39,12 +39,9 @@ const CreateProjectForm = ({style}: CreateProjectFormProps) => {
   };
 
   const onChange = (fieldName: string) => (value: string) => {
-    const currentFieldValue = data[fieldName as keyof ProjectAttrs];
-    const parsedValue =
-      typeof currentFieldValue === 'number' ? parseFloat(value) || 0 : value;
     setData({
       ...data,
-      [fieldName]: parsedValue,
+      [fieldName]: value,
     });
   };
 
@@ -84,14 +81,14 @@ const CreateProjectForm = ({style}: CreateProjectFormProps) => {
           onChange={onChange}
           value={String(data.soft_goal)}
           name="soft_goal"
-          inputMode="numeric"
+          inputMode="decimal"
         />
         <Input
           placeholder={`Hard goal (in ${TOKEN_SYMBOL})`}
           onChange={onChange}
           value={String(data.hard_goal)}
           name="hard_goal"
-          inputMode="numeric"
+          inputMode="decimal"
         />
         <Input
           placeholder="Funding deadline (YYYY-MM-DD)"
