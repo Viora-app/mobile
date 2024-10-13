@@ -6,6 +6,7 @@ import {useTheme} from '../../hooks/useTheme';
 import {useGetData} from '../../hooks/useQuery';
 import {calculateItemsToDisplay} from '../../utils/helpers';
 import ScreenNotFound from '../NotFound/Screen';
+import ScreenLoading from '../Loading/Screen';
 import {ProjectsHeader} from '../SectionHeader/Named';
 import ListFooter from '../ListFooter';
 import Project from './Project';
@@ -34,6 +35,10 @@ const Projects = () => {
     const calculatedItemsToDisplay = calculateItemsToDisplay(height);
     setDisplaySize(calculatedItemsToDisplay);
   };
+
+  if (isLoading && !data?.data.length) {
+    return <ScreenLoading />;
+  }
 
   if (!data?.data.length) {
     return <ScreenNotFound />;

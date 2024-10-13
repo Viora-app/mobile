@@ -13,7 +13,7 @@ import Deadline from './Deadline';
 import Artist from './Artist';
 import Actions from './Actions';
 import NotFound from '../NotFound/Screen';
-import Loading from './Loading';
+import Loading from '../Loading/Screen';
 import FundingProgress from './FundingProgress';
 import {ProjectDetailsProps} from './types';
 import themedStyles from './styles';
