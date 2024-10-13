@@ -31,6 +31,7 @@ export interface ActionsProps {
   accountId: number | undefined;
   projectId: string;
   status: ProjectStatus;
+  deadline: string;
 }
 
 export interface Feedback {

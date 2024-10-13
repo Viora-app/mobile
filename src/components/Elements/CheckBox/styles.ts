@@ -15,7 +15,7 @@ const styles = (theme: Themes) => ({
     alignItems: 'center',
   },
   title: {
-    fontWeight: 500,
+    fontWeight: '500',
     height: 40,
     lineHeight: 40,
     color: colors[theme].neutralMighty,

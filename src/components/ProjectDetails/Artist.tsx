@@ -49,7 +49,7 @@ const Artist: FC<ArtistProps> = ({id}) => {
     instagram,
     twitter,
     twitch,
-  } = data?.data[0].attributes ?? {};
+  } = data?.data[0]?.attributes ?? {};
   const image = getSmallestSize(avatar?.data?.attributes.formats ?? {});
   const name = [first_name, last_name].join(' ') || "What's his face?";
 

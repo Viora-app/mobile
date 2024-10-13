@@ -93,6 +93,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
         ownerId={data?.data?.attributes.users_permissions_user.data.id}
         accountId={account?.id}
         status={data?.data?.attributes.status}
+        deadline={deadline}
       />
       <View style={styles.spacer} />
     </ScrollView>

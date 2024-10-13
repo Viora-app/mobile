@@ -20,7 +20,7 @@ const styles = (theme: Themes) => ({
     height: 40,
   },
   title: {
-    fontWeight: 500,
+    fontWeight: '500',
     color: colors[theme].neutralMighty,
   },
   state: {
