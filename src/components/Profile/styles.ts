@@ -140,7 +140,7 @@ const styles = (theme: Themes) => ({
   },
   walletWrapper: {
     width: '100%',
-    paddingHorizontal: boxes.paddingMedium,
+    paddingHorizontal: boxes.paddingSemi,
     alignItems: 'center',
     marginTop: boxes.paddingMedium,
   },
@@ -172,6 +172,7 @@ const styles = (theme: Themes) => ({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: boxes.paddingSmall,
+    paddingHorizontal: boxes.paddingMedium,
   },
   address: {
     color: colors[theme].primaryStrong,
