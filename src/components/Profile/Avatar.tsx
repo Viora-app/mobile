@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Image} from 'react-native';
 
 import {useTheme} from '../../hooks/useTheme';
@@ -15,13 +15,14 @@ import type {AvatarProps, FileEvent} from './types';
 const Avatar = ({style}: AvatarProps) => {
   const styles = useTheme(themedStyles);
   const {update, account} = useAccount();
-  const {show} = useModal();
+  const [isLoading, setIsLoading] = useState(false);
+  const {show, hide} = useModal();
   const image = getSmallestSize(
     account?.avatar?.formats ?? ({} as ImageFormats),
   );
 
   const onSelectImage = async (file: FileEvent) => {
-    // @todo add loading state
+    setIsLoading(true);
     const formData = new FormData();
     formData.append('files.avatar', {
       uri: file.uri,
@@ -32,19 +33,23 @@ const Avatar = ({style}: AvatarProps) => {
     formData.append('data', JSON.stringify({}));
     const result = await update(formData);
 
-    show(
-      finalMessages({
+    show({
+      ...finalMessages({
         status: result.success ? FetchStatus.success : FetchStatus.error,
         message: result.success
           ? 'Your avatar should be available soon'
           : 'Error uploading your avatar',
       }),
-    );
+      onPrimaryPress: () => {
+        setIsLoading(false);
+        hide();
+      },
+    });
   };
 
   return (
     <View style={[styles.avatarWrapper, style]}>
-      <ImagePicker onSelectImage={onSelectImage}>
+      <ImagePicker disabled={isLoading} onSelectImage={onSelectImage}>
         <Image source={image} style={styles.avatar} />
         <Icon
           name="feather"

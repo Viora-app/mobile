@@ -14,6 +14,7 @@ const ImagePicker: FC<ImagePickerProps> = ({
   onSelectImage,
   style,
   children,
+  disabled,
 }) => {
   const {show} = useModal();
   const pickImage = () => {
@@ -44,7 +45,7 @@ const ImagePicker: FC<ImagePickerProps> = ({
   };
 
   return (
-    <TouchableOpacity style={style} onPress={pickImage}>
+    <TouchableOpacity disabled={disabled} style={style} onPress={pickImage}>
       {children}
     </TouchableOpacity>
   );
