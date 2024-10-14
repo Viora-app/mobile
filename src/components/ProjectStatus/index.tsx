@@ -14,10 +14,10 @@ import PostExclusiveContentsForm from '../Forms/ExclusiveContents/create';
 import successImage from '../../assets/images/success.png';
 import errorImage from '../../assets/images/error.png';
 import {ProjectStatus} from '../Projects/types';
-import {DefaltProjectStatusProps, PublishedProjectOwnerProps} from './type';
+import {DefaultProjectStatusProps, FullDataComponentProps} from './type';
 import {shareProjectInvitation} from '../../utils/shareMenu';
 
-const EditProject: FC<DefaltProjectStatusProps> = ({projectId}) => {
+const EditProject: FC<DefaultProjectStatusProps> = ({projectId}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();
@@ -89,14 +89,18 @@ const EditProject: FC<DefaltProjectStatusProps> = ({projectId}) => {
   );
 };
 
-const SupportProject: FC<DefaltProjectStatusProps> = ({projectId}) => {
+const SupportProject: FC<FullDataComponentProps> = ({
+  account,
+  project,
+  artist,
+}) => {
   const styles = useTheme(themedStyles);
   const {show} = useModal();
   const support = () => {
     show({
       title: 'Support art & culture',
       description: "You're about to make a difference",
-      content: <Contribute projectId={projectId} />,
+      content: <Contribute projectId={project.id} />,
     });
   };
 
@@ -120,13 +124,15 @@ const SupportProject: FC<DefaltProjectStatusProps> = ({projectId}) => {
       <Button
         title="Share"
         theme={ButtonThemes.secondary}
-        onPress={() => Linking.openURL(`https://viora.com/${projectId}`)}
+        onPress={() =>
+          shareProjectInvitation(account, project, artist && artist.attributes)
+        }
       />
     </View>
   );
 };
 
-const PublishedProjectOwner: FC<PublishedProjectOwnerProps> = ({
+const PublishedProjectOwner: FC<FullDataComponentProps> = ({
   project,
   account,
   artist,
@@ -153,7 +159,7 @@ const PublishedProjectOwner: FC<PublishedProjectOwnerProps> = ({
     </View>
   );
 };
-const SuccessfulProjectOwner: FC<DefaltProjectStatusProps> = ({projectId}) => {
+const SuccessfulProjectOwner: FC<DefaultProjectStatusProps> = ({projectId}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();

@@ -87,7 +87,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
       </Text>
       <Deadline date={deadline} />
       <Text style={[styles.medium, styles.spacer]}>{description}</Text>
-      <Artist data={artist} />
+      <Artist data={artist?.data[0]?.attributes ?? {}} />
       <Text style={[styles.semi, styles.spacer]}>
         By supporting her, you're not just funding the music—you’re becoming a
         part of the creative journey!
@@ -98,8 +98,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
         hardGoal={hard_goal}
         style={styles.spacer}
       />
-      <Actions project={data?.data} owner={artist && artist?.data[0]} />
-
+      <Actions project={data?.data} owner={artist?.data[0] ?? {}} />
       <View style={styles.spacer} />
     </ScrollView>
   );

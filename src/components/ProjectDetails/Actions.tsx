@@ -1,13 +1,12 @@
 import React, {FC, useEffect} from 'react';
 import {View} from 'react-native';
 
-import {useModal} from '../../hooks/useModal';
-import {usePatchData} from '../../hooks/useQuery';
-import {ProjectStatus} from '../Projects/types';
 import {ENDPOINTS} from '../../config/endpoints';
 import {FetchStatus} from '../../config/types';
 import {finalMessages} from '../../utils/modal';
-import {ActionsProps} from './types';
+import {useModal} from '../../hooks/useModal';
+import {usePatchData} from '../../hooks/useQuery';
+import {useAccount} from '../../hooks/useAccount';
 import {
   EditProject,
   SupportProject,
@@ -16,7 +15,8 @@ import {
   SuccessfulProjectContributor,
   PublishedProjectOwner,
 } from '../ProjectStatus';
-import {useAccount} from '../../hooks/useAccount';
+import {ProjectStatus} from '../Projects/types';
+import {ActionsProps} from './types';
 
 const Actions: FC<ActionsProps> = ({owner, project}) => {
   const {show} = useModal();
@@ -76,7 +76,7 @@ const Actions: FC<ActionsProps> = ({owner, project}) => {
       ) : null}
 
       {published && ownerId !== accountId ? (
-        <SupportProject projectId={projectId} />
+        <SupportProject project={project} account={account!} artist={owner} />
       ) : null}
 
       {succeeded && ownerId === accountId ? (
@@ -88,8 +88,6 @@ const Actions: FC<ActionsProps> = ({owner, project}) => {
       ) : null}
 
       {failing && ownerId === accountId ? <FailingProjectOwner /> : null}
-
-      {/* {failing && ownerId !== accountId ? <FailingProjectcontributor projectId={projectId} /> : null} */}
     </View>
   );
 };
