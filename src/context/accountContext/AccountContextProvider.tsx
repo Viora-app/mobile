@@ -151,8 +151,6 @@ const AccountProvider = ({children}: {children: ReactNode}) => {
     }
   };
 
-  console.log(account?.jwt);
-
   return (
     <AccountContext.Provider
       value={{account, signIn, signUp, signOut, update, error, loading}}>
