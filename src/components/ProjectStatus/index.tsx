@@ -181,7 +181,7 @@ const SuccessfulProjectOwner = ({projectId}: {projectId: string}) => {
     <View style={[styles.successWrapper, styles.spacer]}>
       <Text style={[styles.large, styles.statusTitle]}>Successful</Text>
       <Text style={[styles.summary, styles.spacerLarge]}>
-        your project has successfull raised funds. Now is the time to shine!
+        Your project has successfully raised funds. Now is the time to shine!
       </Text>
       <Text style={[styles.summary, styles.spacerLarge]}>
         Once ready, you can post updates to deliver your promise.
@@ -212,8 +212,8 @@ const SuccessfulProjectContributor = () => {
         Successful
       </Text>
       <Text style={[styles.semi, styles.spacer]}>
-        Your project has successfull raised funds. Once ready, Magdela will post
-        updates to deliver your rewards.
+        This project has successfully raised funds. Once ready, The artist will
+        publish updates to deliver your rewards.
       </Text>
       <Image source={successImage} style={[styles.image, styles.spacerSemi]} />
     </View>

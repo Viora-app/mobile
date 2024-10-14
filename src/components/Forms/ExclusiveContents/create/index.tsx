@@ -3,15 +3,17 @@ import {View, Keyboard, ScrollView, Dimensions} from 'react-native';
 
 import {useTheme} from '../../../../hooks/useTheme';
 import {useModal} from '../../../../hooks/useModal';
+import {useGetData} from '../../../../hooks/useQuery';
 import {validateForm} from '../../../../utils/validators';
-import {ProjectAttrs} from './types';
+import {ENDPOINTS} from '../../../../config/endpoints';
 import ValidationFeedback from '../../../FormElements/ValidationFeedback';
 import {ButtonThemes} from '../../../Elements/Button/types';
 import {Button, Input} from '../../../Elements';
-import type {PostExclusiveContentsFormProps} from './types';
+import PostExclusiveContentsReview from './Review';
 import {schema} from './schema';
 import themedStyles from './styles';
-import PostExclusiveContentsReview from './Review';
+import type {PostExclusiveContentsFormProps} from './types';
+import {ProjectAttrs} from './types';
 
 const PostExclusiveContentsForm: FC<PostExclusiveContentsFormProps> = ({style, projectId}) => {
   const [data, setData] = useState<Partial<ProjectAttrs>>({
@@ -21,8 +23,15 @@ const PostExclusiveContentsForm: FC<PostExclusiveContentsFormProps> = ({style, p
   });
   const {show} = useModal();
   const styles = useTheme(themedStyles);
-  const maxHeight = Dimensions.get('window').height * 0.6;
+  const {data: contributionTiers} = useGetData(ENDPOINTS.CONTRIBUTION_TIERS, {
+    filters: {
+      project: projectId,
+    },
+  });
 
+  console.log('data', contributionTiers);
+
+  const maxHeight = Dimensions.get('window').height * 0.6;
   const onSubmit = async () => {
     Keyboard.dismiss();
     show({

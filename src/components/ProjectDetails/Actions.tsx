@@ -52,10 +52,11 @@ const Actions: FC<ActionsProps> = ({
   const editable = ownerId === accountId && status === ProjectStatus.Draft;
 
   const published =
-    status === ProjectStatus.Published || status === ProjectStatus.Successful;
+    new Date(deadline) > new Date() &&
+    (status === ProjectStatus.Published || status === ProjectStatus.Successful);
 
   const succeeded =
-    new Date(deadline) < new Date() &&
+    new Date(deadline) <= new Date() &&
     (status === ProjectStatus.Successful || status === ProjectStatus.soldOut);
 
   const failing = status === ProjectStatus.Failing;
@@ -74,7 +75,7 @@ const Actions: FC<ActionsProps> = ({
         <SuccessfulProjectOwner projectId={projectId} />
       ) : null}
 
-      {succeeded && ownerId === accountId ? (
+      {succeeded && ownerId !== accountId ? (
         <SuccessfulProjectContributor />
       ) : null}
 
