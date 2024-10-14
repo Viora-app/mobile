@@ -79,6 +79,7 @@ export interface Project {
     reaction_count: number;
     users_permissions_user: User;
     images: Images;
+    status?: ProjectStatus;
   };
 }
 

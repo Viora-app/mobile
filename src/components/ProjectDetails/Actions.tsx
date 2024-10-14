@@ -16,16 +16,12 @@ import {
   SuccessfulProjectContributor,
   PublishedProjectOwner,
 } from '../ProjectStatus';
+import {useAccount} from '../../hooks/useAccount';
 
-const Actions: FC<ActionsProps> = ({
-  ownerId,
-  accountId,
-  projectId,
-  status,
-  deadline,
-}) => {
+const Actions: FC<ActionsProps> = ({owner, project}) => {
   const {show} = useModal();
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
+  const {account} = useAccount();
 
   const onProjectStatusChange = () => {
     let feedback = {
@@ -49,6 +45,12 @@ const Actions: FC<ActionsProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mutation.isError, mutation.isSuccess, mutation.isLoading]);
 
+  const ownerId = Number(project?.attributes.users_permissions_user.data.id);
+  const accountId = account?.id;
+  const projectId = project?.id;
+  const status = project?.attributes?.status;
+  const deadline = project?.attributes.deadline;
+
   const editable = ownerId === accountId && status === ProjectStatus.Draft;
 
   const published =
@@ -60,12 +62,18 @@ const Actions: FC<ActionsProps> = ({
     (status === ProjectStatus.Successful || status === ProjectStatus.soldOut);
 
   const failing = status === ProjectStatus.Failing;
-  //   ownerId === accountId
+
   return (
     <View>
       {editable && <EditProject projectId={projectId} />}
 
-      {published && ownerId === accountId ? <PublishedProjectOwner /> : null}
+      {published && ownerId === accountId ? (
+        <PublishedProjectOwner
+          project={project}
+          account={account!}
+          artist={owner}
+        />
+      ) : null}
 
       {published && ownerId !== accountId ? (
         <SupportProject projectId={projectId} />

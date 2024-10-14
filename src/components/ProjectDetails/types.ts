@@ -1,4 +1,4 @@
-import {ImageData, ProjectStatus} from '../Projects/types';
+import {ImageData, ImageFormats, Project} from '../Projects/types';
 import {FetchStatus} from '../../config/types';
 
 export interface ProjectDetailsProps {
@@ -8,7 +8,20 @@ export interface ProjectDetailsProps {
 }
 
 export interface ArtistProps {
-  id: string;
+  data: {
+    first_name: string;
+    last_name: string;
+    avatar: {
+      data: {
+        attributes: {
+          formats: ImageFormats;
+        };
+      } | null;
+    };
+    instagram: string;
+    twitter: string;
+    twitch: string;
+  };
 }
 
 export interface DeadlineProps {
@@ -26,12 +39,16 @@ export interface GalleryProps {
   images: ImageData[];
 }
 
+export interface ArtistShareProp {
+  attributes: {
+    formats?: ImageFormats;
+    first_name: string;
+    last_name: string;
+  };
+}
 export interface ActionsProps {
-  ownerId: number | undefined;
-  accountId: number | undefined;
-  projectId: string;
-  status: ProjectStatus;
-  deadline: string;
+  owner: ArtistShareProp;
+  project: Project;
 }
 
 export interface Feedback {

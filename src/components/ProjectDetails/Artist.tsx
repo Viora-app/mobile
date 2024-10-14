@@ -1,8 +1,6 @@
 import React, {FC, useCallback} from 'react';
 import {View, Text, Image, TouchableHighlight, Linking} from 'react-native';
 
-import {ENDPOINTS} from '../../config/endpoints';
-import {useGetData} from '../../hooks/useQuery';
 import {useTheme} from '../../hooks/useTheme';
 import {ArtistProps} from './types';
 import themedStyles from './styles';
@@ -17,19 +15,12 @@ enum SocialPlatforms {
   Twitch = 'twitch',
 }
 
-const Artist: FC<ArtistProps> = ({id}) => {
+const Artist: FC<ArtistProps> = ({data}) => {
   const styles = useTheme(themedStyles);
-  const params = {
-    include: {
-      avatar: ['*'],
-    },
-    filters: {users_permissions_user: id},
-  };
-  const {data} = useGetData(ENDPOINTS.PROFILES, params);
 
   const openPlatform = useCallback(
     (platform: SocialPlatforms) => () => {
-      const {instagram, twitter, twitch} = data?.data[0].attributes ?? {};
+      const {instagram, twitter, twitch} = data ?? {};
       const platforms: Record<SocialPlatforms, string> = {
         instagram: `https://instagram.com/${instagram}`,
         twitter: `https://x.com/${twitter}`,
@@ -39,17 +30,17 @@ const Artist: FC<ArtistProps> = ({id}) => {
         console.error(`Error visiting ${platform}`, err);
       });
     },
-    [data?.data],
+    [data],
   );
 
   const {
     first_name,
     last_name,
-    avatar = {},
+    avatar = {data: null},
     instagram,
     twitter,
     twitch,
-  } = data?.data[0]?.attributes ?? {};
+  } = data ?? {};
   const image = getSmallestSize(avatar?.data?.attributes.formats ?? {});
   const name = [first_name, last_name].join(' ') || "What's his face?";
 

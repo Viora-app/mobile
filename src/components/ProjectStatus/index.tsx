@@ -1,5 +1,5 @@
 import {Image, Linking, Text, View} from 'react-native';
-import React from 'react';
+import React, {FC} from 'react';
 import {Button} from '../Elements';
 import {ButtonThemes} from '../Elements/Button/types';
 import {usePatchData} from '../../hooks/useQuery';
@@ -14,8 +14,10 @@ import PostExclusiveContentsForm from '../Forms/ExclusiveContents/create';
 import successImage from '../../assets/images/success.png';
 import errorImage from '../../assets/images/error.png';
 import {ProjectStatus} from '../Projects/types';
+import {DefaltProjectStatusProps, PublishedProjectOwnerProps} from './type';
+import {shareProjectInvitation} from '../../utils/shareMenu';
 
-const EditProject = ({projectId}: {projectId: string}) => {
+const EditProject: FC<DefaltProjectStatusProps> = ({projectId}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();
@@ -87,7 +89,7 @@ const EditProject = ({projectId}: {projectId: string}) => {
   );
 };
 
-const SupportProject = ({projectId}: {projectId: string}) => {
+const SupportProject: FC<DefaltProjectStatusProps> = ({projectId}) => {
   const styles = useTheme(themedStyles);
   const {show} = useModal();
   const support = () => {
@@ -124,9 +126,12 @@ const SupportProject = ({projectId}: {projectId: string}) => {
   );
 };
 
-const PublishedProjectOwner = () => {
+const PublishedProjectOwner: FC<PublishedProjectOwnerProps> = ({
+  project,
+  account,
+  artist,
+}) => {
   const styles = useTheme(themedStyles);
-
   return (
     <View style={[[styles.publishedWrapper, styles.spacerMini]]}>
       <Text style={[styles.large, styles.statusTitle, styles.spacerMini]}>
@@ -141,12 +146,14 @@ const PublishedProjectOwner = () => {
       <Button
         title="Share"
         theme={ButtonThemes.secondary}
-        onPress={() => Linking.openURL('https://viora.com/')}
+        onPress={() =>
+          shareProjectInvitation(account, project, artist && artist.attributes)
+        }
       />
     </View>
   );
 };
-const SuccessfulProjectOwner = ({projectId}: {projectId: string}) => {
+const SuccessfulProjectOwner: FC<DefaltProjectStatusProps> = ({projectId}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();
