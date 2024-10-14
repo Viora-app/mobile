@@ -24,6 +24,10 @@ const styles = (theme: Themes) => ({
   icon: {
     marginBottom: boxes.paddingMedium,
   },
+  optionsTitle: {
+    color: colors[theme].neutralStrong,
+    lineHeight: fontSizes.h2,
+  },
 });
 
 export default styles;

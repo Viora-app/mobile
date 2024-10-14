@@ -32,7 +32,14 @@ const PostExclusiveContentsReview: FC<PostExclusiveContentsReviewProps> = ({
     setIsSubmitted(true);
     Keyboard.dismiss();
     try {
-      await mutation.mutateAsync({data});
+      await mutation.mutateAsync({
+        data: {
+          title: data.title,
+          description: data.description,
+          accessible_tiers: data.accessible_tiers.map(item => item.id),
+          public_access: false, // Let's keep exclusive for now.
+        },
+      });
     } catch (e) {
       console.error('Error creating exclusive content:', e);
     }
@@ -47,9 +54,17 @@ const PostExclusiveContentsReview: FC<PostExclusiveContentsReviewProps> = ({
     }
   }, [mutation, onDone]);
 
+  const previewData = {
+    title: data.title,
+    description: data.description,
+    accessible_to_tiers: data.accessible_tiers
+      .map(item => item.attributes.name)
+      .join(', '),
+  };
+
   return (
     <View style={styles.reviewWrapper}>
-      <FormSummary data={data} />
+      <FormSummary data={previewData} />
       <View style={styles.actionBar}>
         <Button
           title={isSubmitted ? 'Updating' : 'Create'}

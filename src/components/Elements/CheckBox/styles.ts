@@ -3,8 +3,6 @@ import {boxes, colors} from '../../../config/stylesGuides';
 
 const styles = (theme: Themes) => ({
   container: {
-    paddingLeft: boxes.paddingMedium,
-    paddingRight: boxes.paddingMedium,
     justifyContent: 'space-between',
     marginTop: 12,
     marginBottom: 12,

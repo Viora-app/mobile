@@ -92,3 +92,8 @@ export interface ContributionTierAttrs {
   rewards: string;
   amount: number;
 }
+
+export interface ContributionTier {
+  id: number;
+  attributes: ContributionTierAttrs;
+}
