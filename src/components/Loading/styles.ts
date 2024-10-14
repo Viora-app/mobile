@@ -14,8 +14,8 @@ const styles = (theme: Themes) => ({
     alignItems: 'center',
   },
   title: {
-    fontFamily: fontFamilies.poppinsSemiBold,
-    fontSize: fontSizes.h2,
+    fontFamily: fontFamilies.poppinsRegular,
+    fontSize: fontSizes.h4,
     color: colors[theme].primaryStrong,
   },
   spacer: {
