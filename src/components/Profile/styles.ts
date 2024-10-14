@@ -32,6 +32,9 @@ const styles = (theme: Themes) => ({
   alignCenter: {
     alignItems: 'center',
   },
+  textCenter: {
+    textAlign: 'center',
+  },
   tender: {
     color: colors[theme].neutralTender,
   },
@@ -46,6 +49,9 @@ const styles = (theme: Themes) => ({
   },
   reassureStrong: {
     color: colors[theme].reassureStrong,
+  },
+  primaryStrong: {
+    color: colors[theme].primaryStrong,
   },
   zero: {
     color: colors[theme].neutralZero,
@@ -173,15 +179,6 @@ const styles = (theme: Themes) => ({
     alignItems: 'center',
     paddingVertical: boxes.paddingSmall,
     paddingHorizontal: boxes.paddingMedium,
-  },
-  address: {
-    color: colors[theme].primaryStrong,
-    letterSpacing: 1,
-    textAlign: 'center',
-  },
-  points: {
-    color: colors[theme].primaryStrong,
-    textAlign: 'center',
   },
 });
 
