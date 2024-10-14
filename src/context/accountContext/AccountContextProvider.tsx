@@ -46,20 +46,19 @@ const AccountProvider = ({children}: {children: ReactNode}) => {
   const fetchAndMergeProfile = async (jwt: string) => {
     try {
       const response = await getProfile(jwt);
-      const address = await getWalletAddress(jwt);
       const config = [
         'first_name',
         'last_name',
         'points',
         'avatar_url',
         'avatar',
+        'address',
         {from: 'id', to: 'profileId'},
       ] as unknown as MapObjectConfig<ProfileResponse, ProfileMerged>;
       const profile = mapObject(response, config);
       setAccount((prevAccount: Account | null) => ({
         ...((prevAccount as Account) ?? {}),
         ...(profile ?? {}),
-        address,
       }));
       await EncryptedStorage.setItem(
         USER_CREDENTIALS,

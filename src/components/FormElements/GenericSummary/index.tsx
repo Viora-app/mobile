@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text, View, Dimensions, ScrollView} from 'react-native';
-import {TOKEN_SYMBOL} from '@env';
 
 import {CapitalizeKey} from '../../../utils/formatters';
 import {useTheme} from '../../../hooks/useTheme';
@@ -9,16 +8,14 @@ import themedStyles from './styles';
 
 const FormSummary = ({data}: FormSummaryProps) => {
   const styles = useTheme(themedStyles);
-  const maxHeight = Dimensions.get('window').height * 0.6; // @todo use substraction
+  const maxHeight = Dimensions.get('window').height * 0.6; // @todo use subtraction
 
   return (
     <ScrollView style={{maxHeight}}>
       {Object.entries(data).map(([key, value], index) => (
         <View key={`${key}${index}`}>
           <Text style={styles.key}>{CapitalizeKey(key)}</Text>
-          <Text style={styles.value}>{`${value}${
-            key === 'amount' ? ' ' + TOKEN_SYMBOL : ''
-          }`}</Text>
+          <Text style={styles.value}>{value}</Text>
         </View>
       ))}
     </ScrollView>
