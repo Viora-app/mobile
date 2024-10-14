@@ -8,10 +8,15 @@ import {Themes} from '../../context/presetsContext/types';
 
 const styles = (theme: Themes) => ({
   wrapper: {
-    height: '100%',
     flexFlow: 'row noWrap',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  screen: {
+    height: '100%',
+  },
+  section: {
+    height: 200,
   },
   title: {
     fontFamily: fontFamilies.poppinsRegular,

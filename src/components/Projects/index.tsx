@@ -6,7 +6,7 @@ import {useTheme} from '../../hooks/useTheme';
 import {useGetData} from '../../hooks/useQuery';
 import {calculateItemsToDisplay} from '../../utils/helpers';
 import ScreenNotFound from '../NotFound/Screen';
-import ScreenLoading from '../Loading/Screen';
+import ScreenLoading from '../Loading';
 import {ProjectsHeader} from '../SectionHeader/Named';
 import ListFooter from '../ListFooter';
 import Project from './Project';

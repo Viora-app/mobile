@@ -4,8 +4,9 @@ import {Text, View, Animated, Easing} from 'react-native';
 import {useTheme} from '../../hooks/useTheme';
 import themedStyles from './styles';
 import loading from '../../assets/images/loading.png';
+import {LoadingProps} from './types';
 
-const ScreenLoading: FC = () => {
+const Loading: FC<LoadingProps> = ({wrapper = 'screen'}) => {
   const styles = useTheme(themedStyles);
   const rotateAnim = useRef(new Animated.Value(0)).current;
 
@@ -29,7 +30,7 @@ const ScreenLoading: FC = () => {
   });
 
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, styles[wrapper]]}>
       <Animated.Image
         source={loading}
         style={[styles.spacer, {transform: [{rotate}]}]}
@@ -38,4 +39,4 @@ const ScreenLoading: FC = () => {
     </View>
   );
 };
-export default ScreenLoading;
+export default Loading;
