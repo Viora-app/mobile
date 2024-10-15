@@ -52,9 +52,7 @@ const LoginScreen = () => {
   }, [account, isNavigating, navigation]);
 
   const isButtonDisabled = !email || !password;
-  const errorMessage = error.includes('Invalid identifier or password')
-    ? 'Invalid username or password.'
-    : '';
+  const errorMessage = error ? 'Invalid username or password.' : '';
 
   return (
     <View style={styles.screenContainer}>
