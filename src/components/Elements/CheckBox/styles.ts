@@ -1,5 +1,5 @@
 import {Themes} from '../../../context/presetsContext/types';
-import {boxes, colors} from '../../../config/stylesGuides';
+import {boxes, colors, fontFamilies} from '../../../config/stylesGuides';
 
 const styles = (theme: Themes) => ({
   container: {
@@ -13,7 +13,7 @@ const styles = (theme: Themes) => ({
     alignItems: 'center',
   },
   title: {
-    fontWeight: '500',
+    fontFamily: fontFamilies.poppinsMedium,
     height: 40,
     lineHeight: 40,
     color: colors[theme].neutralMighty,

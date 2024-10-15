@@ -60,6 +60,7 @@ const Carousel = ({
 
   useEffect(() => {
     fadeIn();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const Content = content;

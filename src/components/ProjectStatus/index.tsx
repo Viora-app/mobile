@@ -1,4 +1,4 @@
-import {Image, Linking, Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import React, {FC} from 'react';
 import {Button} from '../Elements';
 import {ButtonThemes} from '../Elements/Button/types';
@@ -159,6 +159,7 @@ const PublishedProjectOwner: FC<FullDataComponentProps> = ({
     </View>
   );
 };
+
 const SuccessfulProjectOwner: FC<DefaultProjectStatusProps> = ({projectId}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
@@ -216,7 +217,7 @@ const SuccessfulProjectOwner: FC<DefaultProjectStatusProps> = ({projectId}) => {
   );
 };
 
-const SuccessfulProjectContributor = () => {
+const SuccessfulProjectContributor: FC = () => {
   const styles = useTheme(themedStyles);
 
   return (
@@ -233,7 +234,7 @@ const SuccessfulProjectContributor = () => {
   );
 };
 
-const FailingProjectOwner = () => {
+const FailingProjectOwner: FC = () => {
   const styles = useTheme(themedStyles);
 
   return (

@@ -39,6 +39,6 @@ const Option = ({
       </>
     </TouchableHighlight>
   );
-}
+};
 
 export default Option;

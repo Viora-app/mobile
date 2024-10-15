@@ -2,13 +2,7 @@ import React, {createContext, useEffect, useState, ReactNode} from 'react';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {USER_CREDENTIALS} from '../../config/constants';
 import {ENDPOINTS} from '../../config/endpoints';
-import {
-  authenticate,
-  register,
-  getProfile,
-  patchData,
-  getWalletAddress,
-} from '../../utils/api';
+import {authenticate, register, getProfile, patchData} from '../../utils/api';
 import {MapObjectConfig} from '../../utils/types';
 import {mapObject} from '../../utils/convertors';
 import type {
@@ -55,6 +49,7 @@ const AccountProvider = ({children}: {children: ReactNode}) => {
         'address',
         {from: 'id', to: 'profileId'},
       ] as unknown as MapObjectConfig<ProfileResponse, ProfileMerged>;
+      // @ts-expect-error The config is more generic
       const profile = mapObject(response, config);
       setAccount((prevAccount: Account | null) => ({
         ...((prevAccount as Account) ?? {}),

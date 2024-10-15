@@ -64,7 +64,8 @@ const PostExclusiveContentsForm: FC<PostExclusiveContentsFormProps> = ({
       title: data.title,
       description: data.description,
       accessible_tiers: data.accessible_tiers.map((id: number) =>
-        contributionTiers.data.find((item: ContributionTier) => item.id === id)),
+        contributionTiers.data.find((item: ContributionTier) => item.id === id),
+      ),
     };
     show({
       title: 'Looking good!',
@@ -89,6 +90,7 @@ const PostExclusiveContentsForm: FC<PostExclusiveContentsFormProps> = ({
     });
   };
 
+  // @ts-expect-error The validationForm param is simply more generic
   const validity = validateForm(schema, data);
 
   return (
