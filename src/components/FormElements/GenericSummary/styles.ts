@@ -9,14 +9,12 @@ import {
 const styles = (theme: Themes) => ({
   key: {
     fontSize: fontSizes.h4,
-    fontFamily: fontFamilies.poppinsRegular,
-    fontWeight: 500,
+    fontFamily: fontFamilies.poppinsMedium,
     color: colors[theme].neutralMild,
   },
   value: {
     fontSize: fontSizes.h3,
-    fontFamily: fontFamilies.poppinsRegular,
-    fontWeight: 500,
+    fontFamily: fontFamilies.poppinsMedium,
     color: colors[theme].neutralMighty,
     paddingBottom: boxes.paddingMedium,
   },

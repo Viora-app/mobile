@@ -36,11 +36,11 @@ const Wallet = ({style}: WalletProps) => {
           </View>
         ) : null}
         <View style={styles.walletContainer}>
-          <Text style={[fonts.base, styles.label]}>Points</Text>
+          <Text style={[fonts.base, styles.mild]}>Points</Text>
           <Text style={[fonts.h1, styles.points]}>{account?.points ?? 0}</Text>
         </View>
         <View style={styles.walletContainer}>
-          <Text style={[fonts.base, styles.label]}>{`${
+          <Text style={[fonts.base, styles.mild]}>{`${
             NETWORK_NAME || ''
           } Wallet Address`}</Text>
           <Text style={[fonts.h3, styles.balance, styles.address]}>

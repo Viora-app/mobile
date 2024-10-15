@@ -30,6 +30,6 @@ const Checkbox = ({
       </>
     </TouchableHighlight>
   );
-}
+};
 
 export default Checkbox;
