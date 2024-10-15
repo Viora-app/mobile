@@ -7,6 +7,7 @@ import {useModal} from '../../../../hooks/useModal';
 import {useGetData} from '../../../../hooks/useQuery';
 import {ENDPOINTS} from '../../../../config/endpoints';
 import {Button} from '../../../Elements';
+import Loading from '../../../Loading';
 import {ButtonThemes} from '../../../Elements/Button/types';
 import ContributionReview from './Review';
 import {
@@ -54,10 +55,10 @@ const Contribute: FC<ContributeProps> = ({projectId}) => {
   const styles = useTheme(themedStyles);
   const {show} = useModal();
   const [selected, setSelected] = useState<string>('');
-  const {data} = useGetData(ENDPOINTS.CONTRIBUTION_TIERS, {
+  const {data, isLoading} = useGetData(ENDPOINTS.CONTRIBUTION_TIERS, {
     filters: {project: projectId},
   });
-  const options: ContributionTier[] = data ? data.data : []; // @todo add loading state
+  const options: ContributionTier[] = data ? data.data : [];
 
   const onSubmit = () => {
     const optionData = options.find(item => item.id === selected);
@@ -82,6 +83,7 @@ const Contribute: FC<ContributeProps> = ({projectId}) => {
   return (
     <View style={[styles.column, styles.justifyCenter, styles.alignCenter]}>
       <View style={[styles.column, styles.spacerMini, styles.optionsWrapper]}>
+        {isLoading && !options.length && <Loading wrapper="section" />}
         {options.map(item => (
           <Option
             key={`${item.id}${item.name}`}

@@ -32,6 +32,9 @@ const styles = (theme: Themes) => ({
   alignCenter: {
     alignItems: 'center',
   },
+  textCenter: {
+    textAlign: 'center',
+  },
   tender: {
     color: colors[theme].neutralTender,
   },
@@ -46,6 +49,9 @@ const styles = (theme: Themes) => ({
   },
   reassureStrong: {
     color: colors[theme].reassureStrong,
+  },
+  primaryStrong: {
+    color: colors[theme].primaryStrong,
   },
   zero: {
     color: colors[theme].neutralZero,
@@ -140,7 +146,7 @@ const styles = (theme: Themes) => ({
   },
   walletWrapper: {
     width: '100%',
-    paddingHorizontal: boxes.paddingMedium,
+    paddingHorizontal: boxes.paddingSemi,
     alignItems: 'center',
     marginTop: boxes.paddingMedium,
   },
@@ -172,15 +178,7 @@ const styles = (theme: Themes) => ({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: boxes.paddingSmall,
-  },
-  address: {
-    color: colors[theme].primaryStrong,
-    letterSpacing: 1,
-    textAlign: 'center',
-  },
-  points: {
-    color: colors[theme].primaryStrong,
-    textAlign: 'center',
+    paddingHorizontal: boxes.paddingMedium,
   },
 });
 
