@@ -1,6 +1,6 @@
-import SectionHeader from './index';
+import React from 'react';
 
-export const HomeHeader = () => <SectionHeader title="Songs of the day" />;
+import SectionHeader from './index';
 
 export const ProjectsHeader = () => (
   <SectionHeader title="Wonderful tunes are coming" />

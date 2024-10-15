@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import colors from './colors';
 
 export const fontFamilies = {
   poppinsThin: 'Poppins-Thin',
@@ -31,7 +30,6 @@ const styles = {
   h1: {
     fontSize: fontSizes.h1,
     fontFamily: fontFamilies.poppinsBlack,
-    fontWeight: '900',
   },
   h2: {
     fontSize: fontSizes.h2,

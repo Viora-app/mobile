@@ -1,5 +1,5 @@
 import {Themes} from '../../../context/presetsContext/types';
-import {boxes, colors} from '../../../config/stylesGuides';
+import {boxes, colors, fontFamilies} from '../../../config/stylesGuides';
 
 const styles = (theme: Themes) => ({
   container: {
@@ -20,7 +20,7 @@ const styles = (theme: Themes) => ({
     height: 40,
   },
   title: {
-    fontWeight: 500,
+    fontFamily: fontFamilies.poppinsMedium,
     color: colors[theme].neutralMighty,
   },
   state: {

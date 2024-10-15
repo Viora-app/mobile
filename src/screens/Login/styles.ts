@@ -24,7 +24,6 @@ const styles = (theme: Themes) => ({
   title: {
     fontSize: fontSizes.h1,
     fontFamily: fontFamilies.poppinsBlack,
-    fontWeight: '900',
     marginBottom: boxes.paddingMedium * 2,
     color: colors[theme].neutralMighty,
   },
@@ -38,7 +37,6 @@ const styles = (theme: Themes) => ({
     fontSize: fontSizes.h4,
     fontFamily: fontFamilies.poppinsRegular,
     letterSpacing: 0.3,
-    fontWeight: '300',
     marginBottom: boxes.paddingSmall,
     borderRadius: boxes.radiusSmall,
     borderWidth: boxes.borderWidth,

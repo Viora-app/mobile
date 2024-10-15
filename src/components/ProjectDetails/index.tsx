@@ -6,7 +6,6 @@ import {Project} from '../Projects/types';
 import {ENDPOINTS} from '../../config/endpoints';
 import {useGetData} from '../../hooks/useQuery';
 import {useTheme} from '../../hooks/useTheme';
-import {useAccount} from '../../hooks/useAccount';
 import {IconButton} from '../Elements';
 import Gallery from './Gallery';
 import Deadline from './Deadline';
@@ -18,7 +17,7 @@ import FundingProgress from './FundingProgress';
 import {ProjectDetailsProps} from './types';
 import themedStyles from './styles';
 
-const params = {
+const projectParams = {
   include: {
     users_permissions_user: ['email'],
     images: ['*'],
@@ -27,8 +26,20 @@ const params = {
 
 const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
   const styles = useTheme(themedStyles);
-  const {data, isLoading} = useGetData(`${ENDPOINTS.PROJECTS}/${id}`, params);
-  const {account} = useAccount();
+  const {data, isLoading} = useGetData(
+    `${ENDPOINTS.PROJECTS}/${id}`,
+    projectParams,
+  );
+  const artistParams = {
+    include: {
+      avatar: ['*'],
+    },
+    filters: {
+      users_permissions_user:
+        data?.data?.attributes.users_permissions_user.data.id,
+    },
+  };
+  const {data: artist} = useGetData(ENDPOINTS.PROFILES, artistParams);
   const navigation = useNavigation();
 
   const gotBack = () => {
@@ -56,7 +67,6 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
       // planned_release_date, @todo design this
     },
   } = data?.data as Project;
-  const artistId = data?.data?.attributes.users_permissions_user.data.id;
 
   return (
     <ScrollView style={styles.container}>
@@ -77,7 +87,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
       </Text>
       <Deadline date={deadline} />
       <Text style={[styles.medium, styles.spacer]}>{description}</Text>
-      <Artist id={artistId} />
+      <Artist data={artist?.data[0]?.attributes ?? {}} />
       <Text style={[styles.semi, styles.spacer]}>
         By supporting her, you're not just funding the music—you’re becoming a
         part of the creative journey!
@@ -88,12 +98,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
         hardGoal={hard_goal}
         style={styles.spacer}
       />
-      <Actions
-        projectId={id}
-        ownerId={data?.data?.attributes.users_permissions_user.data.id}
-        accountId={account?.id}
-        status={data?.data?.attributes.status}
-      />
+      <Actions project={data?.data} owner={artist?.data[0] ?? {}} />
       <View style={styles.spacer} />
     </ScrollView>
   );

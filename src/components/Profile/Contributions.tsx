@@ -16,8 +16,8 @@ import type {ContributionProps, Contribution} from './types';
 
 const Contribution: FC<ContributionProps> = ({data}) => {
   const styles = useTheme(themedStyles);
-  const projectId = data.attributes.project.data.id;
-  const formats = data.attributes.project.data.attributes?.images?.data?.length
+  const projectId = data.attributes.project.data?.id ?? '';
+  const formats = data.attributes.project.data?.attributes?.images?.data?.length
     ? data.attributes.project.data.attributes?.images.data[0].attributes.formats
     : ({} as ImageFormats);
   const image = getSmallestSize(formats);
@@ -46,7 +46,7 @@ const Contribution: FC<ContributionProps> = ({data}) => {
             </Text>
           </View>
           <Text style={[styles.base, styles.mild]}>
-            {data.attributes.project.data.attributes.name}
+            {data.attributes.project.data?.attributes.name ?? '-'}
           </Text>
         </View>
       </View>

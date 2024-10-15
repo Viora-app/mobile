@@ -1,6 +1,6 @@
 import {Themes} from '../../../context/presetsContext/types';
 
-const styles = (theme: Themes) => ({
+const styles = (_theme: Themes) => ({
   wrapper: {
     position: 'relative',
     display: 'flex',
