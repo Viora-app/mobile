@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {View, Image} from 'react-native';
 
 import {useTheme} from '../../hooks/useTheme';
@@ -31,6 +31,7 @@ const Avatar = ({style}: AvatarProps) => {
     });
 
     formData.append('data', JSON.stringify({}));
+    // @ts-expect-error
     const result = await update(formData);
 
     show({
