@@ -31,7 +31,7 @@ const Wallet = ({style}: WalletProps) => {
     setString(account?.address ?? '');
     show({
       title: 'Address copied',
-      description: `The ${NETWORK_NAME} wallet address is copied to your clipboard. Remember yo only need ${TOKEN_SYMBOL} tokens in this account address to use in Viora.`
+      description: `The ${NETWORK_NAME} wallet address is copied to your clipboard. Remember yo only need ${TOKEN_SYMBOL} tokens in this account address to use in Viora.`,
     });
   };
 
