@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* vioraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* vioraTests.m */; };
+		04AB4DEE4441F48F4F9C2702 /* libPods-viora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 960AF7D62FF12FED0FD71474 /* libPods-viora.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		161AF6F96584460691D053BE /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A61B4D42AE34A7AA0A59BC0 /* Poppins-Black.ttf */; };
 		182C163449EB4945983D5FF1 /* dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D295F46CA5BD4A19BDA16071 /* dots.ttf */; };
+		1E5377046AC5E8CADF7EB723 /* libPods-viora-vioraTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C891255FEE26772BED3F03 /* libPods-viora-vioraTests.a */; };
 		26C4796E45964D81A4912292 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9684BE7CF1894FA19106DC0A /* Poppins-Thin.ttf */; };
-		4FEAEB004239FC9E2F215EAE /* libPods-viora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C327A396127C639EBAC9F49 /* libPods-viora.a */; };
 		5A81CA4A66C34187B70233F5 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72A1A54443E84E5A8FFCC1ED /* Poppins-ExtraBold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8B4E9AC5AC184C5D8ECCFBC2 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEB674C0E3404C2D9B6CF2C2 /* Poppins-SemiBold.ttf */; };
 		A24FACE2261DC3A71F2C3E03 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1E41DF995AED225F4E85C4C5 /* PrivacyInfo.xcprivacy */; };
 		A5B37C89C91849D2BC34A7D9 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2D9A7DBA81C4EF48B384393 /* Poppins-Bold.ttf */; };
 		AAAF2AFA688A468AB0E9D1A3 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59730F63F39E42BCB59F3878 /* Poppins-Light.ttf */; };
-		B472ED379370FE94E3D31795 /* libPods-viora-vioraTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B622C7B2B8A6B294E2CB40 /* libPods-viora-vioraTests.a */; };
 		C6E12D1458EB4E029B007FED /* mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 971BE8668D74435E9D38266A /* mono.ttf */; };
 		D9EEFB7B1A614C8598879849 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CF00B051B404BD3AF4C5BA2 /* Poppins-Regular.ttf */; };
 		E51DA2FCC0F7494B8F73B3E1 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F89C8DAA2064F92B4DF71C6 /* Poppins-Medium.ttf */; };
@@ -41,7 +41,7 @@
 		00E356EE1AD99517003FC87E /* vioraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vioraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* vioraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vioraTests.m; sourceTree = "<group>"; };
-		013E02D4E7765D2628DE5E38 /* Pods-viora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora.debug.xcconfig"; path = "Target Support Files/Pods-viora/Pods-viora.debug.xcconfig"; sourceTree = "<group>"; };
+		1348DCF3BEBDB7F129EFE59F /* Pods-viora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora.debug.xcconfig"; path = "Target Support Files/Pods-viora/Pods-viora.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* viora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = viora/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = viora/AppDelegate.mm; sourceTree = "<group>"; };
@@ -49,24 +49,24 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = viora/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = viora/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = viora/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		16CE4874AB9EBF1268295F11 /* Pods-viora-vioraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora-vioraTests.release.xcconfig"; path = "Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A61B4D42AE34A7AA0A59BC0 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/fonts/poppins/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		1E41DF995AED225F4E85C4C5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = viora/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		43B622C7B2B8A6B294E2CB40 /* libPods-viora-vioraTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-viora-vioraTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21C891255FEE26772BED3F03 /* libPods-viora-vioraTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-viora-vioraTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F89C8DAA2064F92B4DF71C6 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		59730F63F39E42BCB59F3878 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/poppins/Poppins-Light.ttf"; sourceTree = "<group>"; };
-		6C327A396127C639EBAC9F49 /* libPods-viora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-viora.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A1A54443E84E5A8FFCC1ED /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../src/assets/fonts/poppins/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		7CF00B051B404BD3AF4C5BA2 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = viora/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		960AF7D62FF12FED0FD71474 /* libPods-viora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-viora.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9684BE7CF1894FA19106DC0A /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/poppins/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		971BE8668D74435E9D38266A /* mono.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = mono.ttf; path = ../src/assets/fonts/mono.ttf; sourceTree = "<group>"; };
-		982B24F0D8AB5E78C497D125 /* Pods-viora-vioraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora-vioraTests.debug.xcconfig"; path = "Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C073A5DD1BF90666CC464EC /* Pods-viora-vioraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora-vioraTests.debug.xcconfig"; path = "Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1E15AC6F211329494AFF118 /* Pods-viora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora.release.xcconfig"; path = "Target Support Files/Pods-viora/Pods-viora.release.xcconfig"; sourceTree = "<group>"; };
 		A2D9A7DBA81C4EF48B384393 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		BEB674C0E3404C2D9B6CF2C2 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/poppins/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		D295F46CA5BD4A19BDA16071 /* dots.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = dots.ttf; path = ../src/assets/fonts/dots.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F0793424B0042A9160F8DFA4 /* Pods-viora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora.release.xcconfig"; path = "Target Support Files/Pods-viora/Pods-viora.release.xcconfig"; sourceTree = "<group>"; };
+		F543910D326F26DABC8A5F04 /* Pods-viora-vioraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viora-vioraTests.release.xcconfig"; path = "Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B472ED379370FE94E3D31795 /* libPods-viora-vioraTests.a in Frameworks */,
+				1E5377046AC5E8CADF7EB723 /* libPods-viora-vioraTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FEAEB004239FC9E2F215EAE /* libPods-viora.a in Frameworks */,
+				04AB4DEE4441F48F4F9C2702 /* libPods-viora.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				6C327A396127C639EBAC9F49 /* libPods-viora.a */,
-				43B622C7B2B8A6B294E2CB40 /* libPods-viora-vioraTests.a */,
+				960AF7D62FF12FED0FD71474 /* libPods-viora.a */,
+				21C891255FEE26772BED3F03 /* libPods-viora-vioraTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,10 +183,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				013E02D4E7765D2628DE5E38 /* Pods-viora.debug.xcconfig */,
-				F0793424B0042A9160F8DFA4 /* Pods-viora.release.xcconfig */,
-				982B24F0D8AB5E78C497D125 /* Pods-viora-vioraTests.debug.xcconfig */,
-				16CE4874AB9EBF1268295F11 /* Pods-viora-vioraTests.release.xcconfig */,
+				1348DCF3BEBDB7F129EFE59F /* Pods-viora.debug.xcconfig */,
+				A1E15AC6F211329494AFF118 /* Pods-viora.release.xcconfig */,
+				9C073A5DD1BF90666CC464EC /* Pods-viora-vioraTests.debug.xcconfig */,
+				F543910D326F26DABC8A5F04 /* Pods-viora-vioraTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -198,12 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "vioraTests" */;
 			buildPhases = (
-				1F3363CCBDE7950557EEB862 /* [CP] Check Pods Manifest.lock */,
+				84758DF3A7724B87CB6AB00D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				EFAD817F2BB3BD3481746EBF /* [CP] Embed Pods Frameworks */,
-				5772A80EDD4A6469653EDD6D /* [CP] Copy Pods Resources */,
+				56143E38DC57640B6A7D6659 /* [CP] Embed Pods Frameworks */,
+				B00168B41EF49B5AAFA41F17 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,13 +218,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "viora" */;
 			buildPhases = (
-				60186BF44CCCC8C800684EDE /* [CP] Check Pods Manifest.lock */,
+				73662B36277A9D4BE8464982 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E1040661C9528B5AE563F31A /* [CP] Embed Pods Frameworks */,
-				095D55F95DE7B973EBD1DF56 /* [CP] Copy Pods Resources */,
+				A37F092B4CF360F4D2B99F37 /* [CP] Embed Pods Frameworks */,
+				F710FE2E4F9A619A9E1DFA44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,63 +318,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		095D55F95DE7B973EBD1DF56 /* [CP] Copy Pods Resources */ = {
+		56143E38DC57640B6A7D6659 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1F3363CCBDE7950557EEB862 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-viora-vioraTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5772A80EDD4A6469653EDD6D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		60186BF44CCCC8C800684EDE /* [CP] Check Pods Manifest.lock */ = {
+		73662B36277A9D4BE8464982 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,7 +357,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1040661C9528B5AE563F31A /* [CP] Embed Pods Frameworks */ = {
+		84758DF3A7724B87CB6AB00D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-viora-vioraTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A37F092B4CF360F4D2B99F37 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,21 +396,38 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EFAD817F2BB3BD3481746EBF /* [CP] Embed Pods Frameworks */ = {
+		B00168B41EF49B5AAFA41F17 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora-vioraTests/Pods-viora-vioraTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F710FE2E4F9A619A9E1DFA44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-viora/Pods-viora-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -463,7 +463,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 982B24F0D8AB5E78C497D125 /* Pods-viora-vioraTests.debug.xcconfig */;
+			baseConfigurationReference = 9C073A5DD1BF90666CC464EC /* Pods-viora-vioraTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -490,7 +490,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16CE4874AB9EBF1268295F11 /* Pods-viora-vioraTests.release.xcconfig */;
+			baseConfigurationReference = F543910D326F26DABC8A5F04 /* Pods-viora-vioraTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -514,7 +514,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 013E02D4E7765D2628DE5E38 /* Pods-viora.debug.xcconfig */;
+			baseConfigurationReference = 1348DCF3BEBDB7F129EFE59F /* Pods-viora.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -543,7 +543,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0793424B0042A9160F8DFA4 /* Pods-viora.release.xcconfig */;
+			baseConfigurationReference = A1E15AC6F211329494AFF118 /* Pods-viora.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
