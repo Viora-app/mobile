@@ -12,13 +12,21 @@ import appLogo from '../../assets/images/applogo.png';
 const ErrorMessage: FC<{errorMessage: string}> = ({errorMessage}) => {
   const styles = useTheme(themedStyles);
 
-  if (!errorMessage) {
+  if (typeof errorMessage !== 'string' || !errorMessage) {
     return null;
+  }
+  const networkReg = /network/i;
+  let formattedMessage = errorMessage;
+
+  if (networkReg.test(errorMessage)) {
+    formattedMessage = 'Check your internet connection';
+  } else {
+    formattedMessage = 'The email/password combination was not correct.';
   }
 
   return (
     <View style={styles.errorContainer}>
-      <Text style={styles.errorText}>{errorMessage}</Text>
+      <Text style={styles.errorText}>{formattedMessage}</Text>
     </View>
   );
 };
@@ -38,9 +46,8 @@ const LoginScreen = () => {
   };
 
   const onRegister = async () => {
-    const username = email;
     if (email && password) {
-      await signUp(email, password, username);
+      await signUp(email, password, email);
     }
   };
 
@@ -52,7 +59,6 @@ const LoginScreen = () => {
   }, [account, isNavigating, navigation]);
 
   const isButtonDisabled = !email || !password;
-  const errorMessage = error ? 'Invalid username or password.' : '';
 
   return (
     <View style={styles.screenContainer}>
@@ -68,7 +74,7 @@ const LoginScreen = () => {
         placeholder="Email"
         keyboardType="email-address"
         autoCapitalize="none"
-        style={[styles.input, errorMessage ? styles.inputError : null]}
+        style={[styles.input, error ? styles.inputError : null]}
         placeholderTextColor={styles.placeholderTextColor}
       />
       <TextInput
@@ -77,11 +83,11 @@ const LoginScreen = () => {
         placeholder="Password"
         secureTextEntry
         autoCapitalize="none"
-        style={[styles.input, errorMessage ? styles.inputError : null]}
+        style={[styles.input, error ? styles.inputError : null]}
         placeholderTextColor={styles.placeholderTextColor}
       />
 
-      <ErrorMessage errorMessage={errorMessage} />
+      <ErrorMessage errorMessage={error} />
 
       <View style={styles.buttonContainer}>
         <Button
