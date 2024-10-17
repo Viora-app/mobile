@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Text, Image, View} from 'react-native';
 import {Link} from '@react-navigation/native';
-import {API_URL} from '@env';
+import {API_URL} from '../../../env.json';
 
 import {useTheme} from '../../hooks/useTheme';
 import themedStyles from './styles';

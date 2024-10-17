@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {View, Keyboard} from 'react-native';
-import {TOKEN_SYMBOL} from '@env';
+import {TOKEN_SYMBOL} from '../../../../../env.json';
 
 import {FetchStatus} from '../../../../config/types';
 import {ENDPOINTS} from '../../../../config/endpoints';

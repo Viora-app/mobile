@@ -78,3 +78,4 @@ mocks
 .env
 .env.production
 .env.staging
+env.json

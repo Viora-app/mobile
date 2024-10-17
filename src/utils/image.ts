@@ -1,4 +1,4 @@
-import {API_URL} from '@env';
+import {API_URL} from '../../env.json';
 
 import thumbnailPlaceholder from '../assets/images/gallerymini.png';
 import largePlaceholder from '../assets/images/gallerymain.png';

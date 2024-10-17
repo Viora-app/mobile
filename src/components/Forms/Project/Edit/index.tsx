@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Keyboard, ScrollView, Dimensions} from 'react-native';
-import {TOKEN_SYMBOL} from '@env';
+import {TOKEN_SYMBOL} from '../../../../../env.json';
 
 import {ENDPOINTS} from '../../../../config/endpoints';
 import {mapObject} from '../../../../utils/convertors';

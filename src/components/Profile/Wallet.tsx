@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {useClipboard} from '@react-native-clipboard/clipboard';
-import {NETWORK_NAME, TOKEN_SYMBOL} from '@env';
+import {NETWORK_NAME, TOKEN_SYMBOL} from '../../../env.json';
 
 import {truncateAddress} from '../../utils/formatters';
 import {Themes} from '../../context/presetsContext/types';

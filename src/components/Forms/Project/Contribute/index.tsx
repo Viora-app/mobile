@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {TOKEN_SYMBOL} from '@env';
+import {TOKEN_SYMBOL} from '../../../../../env.json';
 
 import {useTheme} from '../../../../hooks/useTheme';
 import {useModal} from '../../../../hooks/useModal';

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Keyboard, ScrollView, Dimensions} from 'react-native';
-import {TOKEN_SYMBOL} from '@env';
+import {TOKEN_SYMBOL} from '../../../../../env.json';
 
 import {useTheme} from '../../../../hooks/useTheme';
 import {useModal} from '../../../../hooks/useModal';

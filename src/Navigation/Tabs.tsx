@@ -3,7 +3,7 @@ import {
   createBottomTabNavigator,
   BottomTabBarProps,
 } from '@react-navigation/bottom-tabs';
-import {TOKEN_SYMBOL} from '@env';
+import {TOKEN_SYMBOL} from '../../env.json';
 
 import Projects from '../screens/Projects';
 import Settings from '../screens/Settings';

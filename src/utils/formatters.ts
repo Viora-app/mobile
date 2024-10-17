@@ -1,4 +1,4 @@
-import {TOKEN_SYMBOL} from '@env';
+import {TOKEN_SYMBOL} from '../../env.json';
 import BigNumber from 'bignumber.js';
 
 export const formatThousands = (num: number): string => {
