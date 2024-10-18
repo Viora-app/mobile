@@ -74,3 +74,9 @@ export interface ValidationResult {
   isValid: boolean;
   message: string;
 }
+
+export enum HapticLevels {
+  Success = 'notificationSuccess',
+  Error = 'notificationError',
+  Warn = 'notificationWarning',
+}

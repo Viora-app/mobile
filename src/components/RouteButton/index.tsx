@@ -5,6 +5,7 @@ import {useTheme} from '../../hooks/useTheme';
 import themedStyles from './styles';
 import {Icon} from '../Elements';
 import {colors} from '../../config/stylesGuides';
+import {haptic} from '../../utils/haptic';
 
 const RouteButton = ({route, navigation, stateIndex, index}: any) => {
   const {presets} = usePresets();
@@ -12,6 +13,7 @@ const RouteButton = ({route, navigation, stateIndex, index}: any) => {
   const isFocused = stateIndex === index;
 
   const onPress = () => {
+    haptic('aciton');
     const event = navigation.emit({
       type: 'tabPress',
       target: route.key,
