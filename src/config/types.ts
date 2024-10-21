@@ -109,3 +109,12 @@ export enum COMMANDS {
 }
 
 export type Timeout = NodeJS.Timeout;
+
+export interface QuickAction {
+  type: string;
+  title: string;
+  icon: string;
+  userInfo: {
+    url: string;
+  };
+}
