@@ -8482,6 +8482,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-quick-actions@npm:^0.3.13":
+  version: 0.3.13
+  resolution: "react-native-quick-actions@npm:0.3.13"
+  checksum: c3d52043d26ce8fd7b95d8158d8b03e4d00463fc60c96e5b8f1b7817b62e8683c758ff665e4e42ece75d3e299c680432937ed5774e28aedf2fe52f02937fa812
+  languageName: node
+  linkType: hard
+
 "react-native-safe-area-context@npm:^4.10.7":
   version: 4.11.0
   resolution: "react-native-safe-area-context@npm:4.11.0"
@@ -10030,6 +10037,7 @@ __metadata:
     react-native-gesture-handler: ^2.17.1
     react-native-image-picker: ^7.1.2
     react-native-modal: ^13.0.1
+    react-native-quick-actions: ^0.3.13
     react-native-safe-area-context: ^4.10.7
     react-native-screens: ^3.32.0
     react-native-svg: ^15.3.0
