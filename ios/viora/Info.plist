@@ -18,14 +18,23 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Viora needs access to your photo library to allow you to upload photos for creating your profile and sharing content.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Viora needs access to your camera to allow you to take photos for creating your profile.</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>viora</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>viora</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -35,6 +44,10 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Viora needs access to your camera to allow you to take photos for creating your profile.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Viora needs access to your photo library to allow you to upload photos for creating your profile and sharing content.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>dots.ttf</string>
@@ -57,23 +70,14 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>viora</string>
-	</array>
-	<key>CFBundleURLTypes</key>
-		<array>
-			<dict>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>viora</string>
-				</array>
-			</dict>
-		</array>
 </dict>
 </plist>
