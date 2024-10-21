@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 
 import {SafeArea} from '../../components/Elements';
 import Projects from '../../components/Projects';
@@ -14,15 +14,17 @@ const modalProps = {
 };
 
 const ProjectsScreen: FC<RouteParams> = ({route: {params}}) => {
-  const {show, isVisible} = useModal();
+  const {show} = useModal();
+  const [hasModal, setHasModal] = useState(params && !!params.modal);
   useEffect(() => {
-    if (params && params.modal && !isVisible) {
+    if (hasModal) {
+      setHasModal(false);
       show({
         content: <Form />,
         ...modalProps,
       });
     }
-  }, [isVisible, params, show]);
+  }, [hasModal, show]);
 
   return (
     <SafeArea>
