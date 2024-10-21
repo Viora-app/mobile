@@ -1,20 +1,48 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React, {FC, useEffect, useRef, useState} from 'react';
+import {popInitialAction} from 'react-native-quick-actions';
 
-import type {Timeout} from '../../config/types';
+import type {Timeout, QuickAction} from '../../config/types';
 import {Routes} from '../../config/routes';
+import {LAUNCH_PROTOCOL} from '../../config/endpoints';
 import {usePresets} from '../../hooks/usePresets';
 import {useAccount} from '../../hooks/useAccount';
 import {SafeArea} from '../../components/Elements';
 import Splash from '../../components/Splash';
 import {CURRENT_INTRO_VERSION} from '../Intro';
+import {NavigationProps} from './types';
 
-const SplashScreen = () => {
+const SplashScreen: FC<NavigationProps> = ({navigation}) => {
   const {presets} = usePresets();
-  const navigation = useNavigation();
   const timeout = useRef<Timeout>();
   const {account} = useAccount();
   const [isNavigated, setIsNavigated] = useState(false);
+
+  useEffect(() => {
+    // Handle shortcut actions
+    const handleQuickAction = async (data: QuickAction) => {
+      try {
+        const url = data?.userInfo?.url;
+        const path = url.replace(LAUNCH_PROTOCOL, '');
+        if (path) {
+          setIsNavigated(true);
+          const params = path === 'new' ? {modal: 'project'} : {};
+          navigation.navigate({
+            name: Routes.Tabs,
+            params,
+          });
+        }
+      } catch (e) {
+        console.log('Error handling quick actions', e);
+      }
+    };
+
+    popInitialAction().then(data => {
+      if (data) {
+        handleQuickAction(data);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     clearTimeout(timeout.current);

@@ -1,3 +1,5 @@
+export const LAUNCH_PROTOCOL = 'viora://';
+
 export const ENDPOINTS = {
   SONGS: '/songs',
   VOTES: '/votes',

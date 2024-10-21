@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {FC, useCallback, useEffect} from 'react';
 import {
   createBottomTabNavigator,
   BottomTabBarProps,
@@ -8,17 +8,17 @@ import {TOKEN_SYMBOL} from '@env';
 import Projects from '../screens/Projects';
 import Settings from '../screens/Settings';
 import Profile from '../screens/Profile';
-// import TopTunes from '../screens/TopTunes';
 import BottomTabBar from '../components/BottomTabBar';
 import {colors} from '../config/stylesGuides';
 import {usePresets} from '../hooks/usePresets';
+import {RouteParams} from '../screens/Projects/types';
 
 const Tab = createBottomTabNavigator();
 
-const Navigation = (): JSX.Element => {
+const Navigation: FC<RouteParams> = ({route: {params}}) => {
   const {presets} = usePresets();
 
-  const tabBarOptions = {
+  const options = {
     tabBarShowLabel: false,
     headerStyle: {
       backgroundColor: colors[presets.theme].secondaryStrong,
@@ -27,7 +27,7 @@ const Navigation = (): JSX.Element => {
     },
   };
 
-  const ThemedBottomTabBar2 = useCallback(
+  const ThemedBottomTabBar = useCallback(
     (props: BottomTabBarProps) => {
       return <BottomTabBar {...props} theme={presets.theme} />;
     },
@@ -41,19 +41,16 @@ const Navigation = (): JSX.Element => {
   }, []);
 
   return (
-    <Tab.Navigator initialRouteName="Home" tabBar={ThemedBottomTabBar2}>
-      <Tab.Screen name="Home" component={Projects} options={tabBarOptions} />
-      {/* <Tab.Screen
-        name="Top Tunes"
-        component={TopTunes}
-        options={tabBarOptions}
-      /> */}
-      <Tab.Screen name="Profile" component={Profile} options={tabBarOptions} />
+    <Tab.Navigator initialRouteName="Home" tabBar={ThemedBottomTabBar}>
       <Tab.Screen
-        name="Settings"
-        component={Settings}
-        options={tabBarOptions}
+        name="Home"
+        // @ts-expect-error
+        component={Projects}
+        options={options}
+        initialParams={params}
       />
+      <Tab.Screen name="Profile" component={Profile} options={options} />
+      <Tab.Screen name="Settings" component={Settings} options={options} />
     </Tab.Navigator>
   );
 };
