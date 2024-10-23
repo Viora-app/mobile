@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useMutation, useQuery, useQueryClient} from 'react-query';
-import {getData, postData, patchData} from '../../utils/api';
+import {getData, postData, patchData, deleteData} from '../../utils/api';
 import {useAccount} from '../useAccount';
 import {API_CALL_LIMIT} from '../../config/constants';
 
@@ -114,6 +114,24 @@ export const usePatchData = (endpoint: string) => {
   return useMutation(
     ({id, data}: {id: string; data: any}) =>
       patchData(`${endpoint}/${id}`, {data}, account?.jwt),
+    {
+      onSuccess: () => {
+        // Invalidate and refetch queries after a successful mutation
+        queryClient.invalidateQueries([endpoint]);
+      },
+      onError: error => {
+        console.error('Error patching data:', error);
+      },
+    },
+  );
+};
+
+export const useDeleteData = (endpoint: string) => {
+  const queryClient = useQueryClient();
+  const {account} = useAccount();
+
+  return useMutation(
+    ({id}: {id: string}) => deleteData(`${endpoint}/${id}`, account?.jwt),
     {
       onSuccess: () => {
         // Invalidate and refetch queries after a successful mutation
