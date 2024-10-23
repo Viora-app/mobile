@@ -36,7 +36,13 @@ export interface FundingProgressProps {
   style: string;
 }
 
-export interface ImageItemProps {
+export interface ReadableImageProps {
+  index: number;
+  image: FileEvent;
+  style?: string;
+}
+
+export interface EditableImageProps {
   index: number;
   image: FileEvent;
   style?: string;

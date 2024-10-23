@@ -11,4 +11,5 @@ export const ENDPOINTS = {
   CONTRIBUTION_TIERS: '/contribution-tiers',
   CONTRIBUTIONS: '/contributions',
   EXCLUSIVE_CONTENT: '/exclusive-contents',
+  FILES: '/upload/files',
 };
