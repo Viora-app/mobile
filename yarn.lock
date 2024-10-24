@@ -8469,6 +8469,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-image-viewing@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "react-native-image-viewing@npm:0.2.2"
+  peerDependencies:
+    react: ">=16.11.0"
+    react-native: ">=0.61.3"
+  checksum: 17f16958ebc00787453d68ca0a695ee5fd9c59865fc525e192de6f200f4b91caa3af3da5a9908e28c94370ea28382074328f917c5398a27b112dd986985f77a0
+  languageName: node
+  linkType: hard
+
 "react-native-modal@npm:^13.0.1":
   version: 13.0.1
   resolution: "react-native-modal@npm:13.0.1"
@@ -10036,6 +10046,7 @@ __metadata:
     react-native-encrypted-storage: ^4.0.3
     react-native-gesture-handler: ^2.17.1
     react-native-image-picker: ^7.1.2
+    react-native-image-viewing: ^0.2.2
     react-native-modal: ^13.0.1
     react-native-quick-actions: ^0.3.13
     react-native-safe-area-context: ^4.10.7
