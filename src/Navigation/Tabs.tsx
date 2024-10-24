@@ -11,7 +11,7 @@ import Profile from '../screens/Profile';
 import BottomTabBar from '../components/BottomTabBar';
 import {colors} from '../config/stylesGuides';
 import {usePresets} from '../hooks/usePresets';
-import {RouteParams} from '../screens/Projects/types';
+import {RouteParams} from '../utils/types';
 
 const Tab = createBottomTabNavigator();
 
