@@ -32,7 +32,7 @@ const ImageItem: FC<ReadableImageProps> = ({index, image, style}) => {
   );
 };
 
-const Gallery: FC<GalleryProps> = ({images}) => {
+const Readable: FC<GalleryProps> = ({images = []}) => {
   const styles = useTheme(themedStyles);
 
   const formatImages = () => {
@@ -50,4 +50,4 @@ const Gallery: FC<GalleryProps> = ({images}) => {
   );
 };
 
-export default Gallery;
+export default Readable;

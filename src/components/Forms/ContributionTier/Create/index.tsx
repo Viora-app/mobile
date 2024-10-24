@@ -35,12 +35,9 @@ const CreateContributionTierForm = ({id, style}: ContributionTier) => {
   };
 
   const onChange = (fieldName: string) => (value: string) => {
-    const currentFieldValue = data[fieldName as keyof ContributionTierAttrs];
-    const parsedValue =
-      typeof currentFieldValue === 'number' ? parseFloat(value) || 0 : value;
     setData({
       ...data,
-      [fieldName]: parsedValue,
+      [fieldName]: value,
     });
   };
 
@@ -72,9 +69,9 @@ const CreateContributionTierForm = ({id, style}: ContributionTier) => {
         <Input
           placeholder={`Amount (in ${TOKEN_SYMBOL})`}
           onChange={onChange}
-          value={String(data.amount)}
+          value={data.amount}
           name="amount"
-          inputMode="numeric"
+          inputMode="decimal"
         />
       </ScrollView>
       <ValidationFeedback {...validity} />
