@@ -1,67 +1,12 @@
-import React, {useEffect} from 'react';
-import Carousel from '../../components/Carousel';
-import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 
-import {Routes} from '../../config/routes';
-import {colors} from '../../config/stylesGuides';
 import {SafeArea} from '../../components/Elements';
-import IntroContent from '../../components/IntroContent';
-import whyImage from '../../assets/images/why.png';
-import howImage from '../../assets/images/how.png';
-import whatImage from '../../assets/images/what.png';
-import corpsImage from '../../assets/images/corps.png';
-import {usePresets} from '../../hooks/usePresets';
+import Intro from '../../components/Intro';
 
-const entries = [
-  {
-    image: whyImage,
-    description: 'Viora helps you discover wonderful tunes',
-    backgroundColor: colors.light.primaryMild,
-    color: colors.light.neutralZero,
-  },
-  {
-    image: howImage,
-    description:
-      'Share the music you loved or upvote tunes shared by others to help everyone find wonderful music',
-    backgroundColor: colors.light.reassureMild,
-    color: colors.light.primaryStrong,
-  },
-  {
-    image: whatImage,
-    description:
-      'Three most popular tunes of each day receive a badge and prize',
-    backgroundColor: colors.light.warnMild,
-    color: colors.light.neutralZero,
-  },
-  {
-    image: corpsImage,
-    description: 'Listen and share songs directly from Spotify and Apple Music',
-    backgroundColor: colors.light.warnStrong,
-    color: colors.light.primaryStrong,
-  },
-];
-
-export const CURRENT_INTRO_VERSION = '0.1.0';
-
-const IntroScreen = () => {
-  const {presets, storePresets} = usePresets();
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    if (presets.visitedIntroVersion >= CURRENT_INTRO_VERSION) {
-      navigation.navigate(Routes.Login as never);
-    }
-  }, [navigation, presets.visitedIntroVersion]);
-
-  const onEnd = () => {
-    storePresets({visitedIntroVersion: CURRENT_INTRO_VERSION});
-  };
-
-  return (
-    <SafeArea>
-      <Carousel data={entries} content={IntroContent} onEnd={onEnd} />
-    </SafeArea>
-  );
-};
+const IntroScreen = () => (
+  <SafeArea>
+    <Intro />
+  </SafeArea>
+);
 
 export default IntroScreen;
