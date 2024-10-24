@@ -48,6 +48,7 @@ export interface ImageItemProps {
 export interface GalleryProps {
   images: ImageData[];
   id: string;
+  refresh: () => Promise<void>;
 }
 
 export interface ArtistShareProp {
@@ -60,6 +61,7 @@ export interface ArtistShareProp {
 export interface ActionsProps {
   owner: ArtistShareProp;
   project: Project;
+  refresh: () => Promise<void>;
 }
 
 export interface Feedback {

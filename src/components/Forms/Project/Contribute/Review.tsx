@@ -19,6 +19,7 @@ const ContributionReview: FC<ContributionReviewProps> = ({
   id,
   projectId,
   data,
+  refresh,
 }) => {
   const styles = useTheme(themedStyles);
   const {show} = useModal();
@@ -32,6 +33,7 @@ const ContributionReview: FC<ContributionReviewProps> = ({
       contribution_tier: String(id),
       amount: toBaseToken(data.amount),
     });
+    refresh();
   };
 
   const onDone = useCallback(

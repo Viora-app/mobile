@@ -26,7 +26,7 @@ const projectParams = {
 
 const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
   const styles = useTheme(themedStyles);
-  const {data, isLoading} = useGetData(
+  const {data, isLoading, refresh} = useGetData(
     `${ENDPOINTS.PROJECTS}/${id}`,
     projectParams,
   );
@@ -83,6 +83,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
         id={data?.data.id}
         projectStatus={data?.data.attributes.status}
         ownerId={data?.data?.attributes.users_permissions_user.data.id}
+        refresh={refresh}
       />
       <Text style={[styles.largest, styles.spacer]}>
         {restProps.name ?? name}
@@ -103,7 +104,11 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
         hardGoal={hard_goal}
         style={styles.spacer}
       />
-      <Actions project={data?.data} owner={artist?.data[0] ?? {}} />
+      <Actions
+        project={data?.data}
+        owner={artist?.data[0] ?? {}}
+        refresh={refresh}
+      />
       <View style={styles.spacer} />
     </ScrollView>
   );

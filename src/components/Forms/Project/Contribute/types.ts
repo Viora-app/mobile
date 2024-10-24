@@ -12,6 +12,7 @@ export interface ContributionTier {
 
 export interface ContributeProps {
   projectId: string;
+  refresh: () => Promise<void>;
 }
 
 export interface ContributeOptionProps {
@@ -28,6 +29,7 @@ export interface ContributionReviewProps {
     rewards: string;
     amount: number;
   };
+  refresh: () => Promise<void>;
 }
 
 export interface Feedback {
