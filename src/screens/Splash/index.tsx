@@ -9,7 +9,7 @@ import {usePresets} from '../../hooks/usePresets';
 import {useAccount} from '../../hooks/useAccount';
 import {SafeArea} from '../../components/Elements';
 import Splash from '../../components/Splash';
-import {CURRENT_INTRO_VERSION} from '../Intro';
+import {CURRENT_INTRO_VERSION} from '../../components/Intro/content';
 
 const SplashScreen: FC<RouteParams> = ({navigation}) => {
   const {presets} = usePresets();
@@ -55,7 +55,7 @@ const SplashScreen: FC<RouteParams> = ({navigation}) => {
         } else if (!account?.jwt) {
           navigation.navigate(Routes.Login as never);
         } else {
-          navigation.navigate(Routes.Tabs as never);
+          navigation.navigate(Routes.Intro as never);
         }
       }, 1000);
     }

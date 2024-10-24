@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Image, Dimensions} from 'react-native';
+
 import {boxes} from '../../config/stylesGuides';
 import {useTheme} from '../../hooks/useTheme';
 import themedStyles from './styles';
 import {IntroContentProps} from './types';
 
-const IntroContent = ({data}: IntroContentProps) => {
+const Slide = ({data}: IntroContentProps) => {
   const [dimensions, setDimensions] = useState([0, 0]);
   const styles = useTheme(themedStyles);
-  const {backgroundColor, image, description, color} = data;
+  const {backgroundColor, image, description, color, onSelect} = data;
 
   useEffect(() => {
     const {width, height} = Dimensions.get('window');
@@ -30,4 +31,4 @@ const IntroContent = ({data}: IntroContentProps) => {
   );
 };
 
-export default IntroContent;
+export default Slide;
