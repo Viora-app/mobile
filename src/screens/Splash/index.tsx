@@ -1,6 +1,7 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {popInitialAction} from 'react-native-quick-actions';
 
+import {RouteParams} from '../../utils/types';
 import type {Timeout, QuickAction} from '../../config/types';
 import {Routes} from '../../config/routes';
 import {LAUNCH_PROTOCOL} from '../../config/endpoints';
@@ -9,9 +10,8 @@ import {useAccount} from '../../hooks/useAccount';
 import {SafeArea} from '../../components/Elements';
 import Splash from '../../components/Splash';
 import {CURRENT_INTRO_VERSION} from '../Intro';
-import {NavigationProps} from './types';
 
-const SplashScreen: FC<NavigationProps> = ({navigation}) => {
+const SplashScreen: FC<RouteParams> = ({navigation}) => {
   const {presets} = usePresets();
   const timeout = useRef<Timeout>();
   const {account} = useAccount();

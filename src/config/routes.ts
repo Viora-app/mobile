@@ -11,4 +11,5 @@ export enum Routes {
   Settings = 'Settings',
   Tabs = 'Tabs',
   ProjectDetails = 'ProjectDetails',
+  Picture = 'Picture',
 }

@@ -42,14 +42,22 @@ export const patchData = async (
   data: any,
   jwt: string | undefined,
 ) => {
-  console.log('data', data);
   const isFormData = data?.data instanceof FormData;
-  console.log('isFormData', isFormData);
   const body = isFormData ? data.data : data;
   const response = await api.put(endpoint, body, {
     headers: {
       Authorization: `Bearer ${jwt}`,
       'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
+    },
+  });
+  return response.data;
+};
+
+export const deleteData = async (endpoint: string, jwt: string | undefined) => {
+  const response = await api.delete(endpoint, {
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+      'Content-Type': 'application/json',
     },
   });
   return response.data;

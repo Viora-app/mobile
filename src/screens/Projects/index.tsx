@@ -6,7 +6,7 @@ import Form from '../../components/Forms/Project/Create';
 import ModalButton from '../../components/ModalButton';
 import {ButtonType} from '../../components/ModalButton/types';
 import {useModal} from '../../hooks/useModal';
-import {RouteParams} from './types';
+import {RouteParams} from '../../utils/types';
 
 const modalProps = {
   title: 'Let the world know',

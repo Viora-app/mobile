@@ -74,3 +74,15 @@ export interface ValidationResult {
   isValid: boolean;
   message: string;
 }
+
+export interface RouteParams {
+  route: {
+    params: Record<string, unknown> | undefined;
+  };
+  navigation: {
+    goBack: () => void;
+    navigate: (
+      params: string | {name: string; params?: Record<string, unknown>},
+    ) => {};
+  };
+}

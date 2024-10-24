@@ -13,14 +13,6 @@ const styles = (theme: Themes) => ({
   header: {
     paddingBottom: boxes.paddingSemi,
   },
-  galleryWrapper: {
-    width: '100%',
-    height: 300,
-    backgroundColor: colors[theme].neutralZero,
-    borderRadius: boxes.radiusLarge,
-    padding: boxes.paddingSemi,
-    overflow: 'hidden',
-  },
   row: {
     display: 'flex',
     flexDirection: 'row',
@@ -31,27 +23,11 @@ const styles = (theme: Themes) => ({
     flexDirection: 'column',
     flexWrap: 'nowrap',
   },
-  galleryMain: {
-    width: '100%',
-    height: 180,
-    borderRadius: boxes.radiusSmall,
-  },
-  otherImages: {
-    paddingVertical: boxes.paddingSemi / 2,
-    marginHorizontal: (-1 * boxes.paddingSemi) / 2,
-  },
   spacerMini: {
     marginBottom: boxes.paddingSmall,
   },
   spacer: {
     marginBottom: boxes.paddingExtreme,
-  },
-  galleryOther: {
-    flex: 1,
-    height: 90,
-    borderRadius: boxes.radiusMedium,
-    borderWidth: boxes.paddingSemi / 2,
-    borderColor: colors[theme].neutralZero,
   },
   justifyCenter: {
     justifyContent: 'center',

@@ -8,6 +8,7 @@ import SplashScreen from '../screens/Splash';
 import IntroScreen from '../screens/Intro';
 import LoginScreen from '../screens/Login';
 import ProjectDetailsScreen from '../screens/ProjectDetails';
+import PictureScreen from '../screens/Picture';
 import Tabs from './Tabs';
 import {quickActions} from './actionMenus';
 
@@ -30,6 +31,7 @@ const Stacks: FC = () => {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Tabs" component={Tabs} />
         <Stack.Screen name="ProjectDetails" component={ProjectDetailsScreen} />
+        <Stack.Screen name="Picture" component={PictureScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

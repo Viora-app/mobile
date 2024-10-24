@@ -7,7 +7,7 @@ import {ENDPOINTS} from '../../config/endpoints';
 import {useGetData} from '../../hooks/useQuery';
 import {useTheme} from '../../hooks/useTheme';
 import {IconButton} from '../Elements';
-import Gallery from './Gallery';
+import Gallery from '../ProjectGallery';
 import Deadline from './Deadline';
 import Artist from './Artist';
 import Actions from './Actions';
@@ -78,7 +78,12 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({id, ...restProps}) => {
           iconName="cross"
         />
       </View>
-      <Gallery images={images?.data} />
+      <Gallery
+        images={images?.data || undefined}
+        id={data?.data.id}
+        projectStatus={data?.data.attributes.status}
+        ownerId={data?.data?.attributes.users_permissions_user.data.id}
+      />
       <Text style={[styles.largest, styles.spacer]}>
         {restProps.name ?? name}
       </Text>
