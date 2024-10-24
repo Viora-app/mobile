@@ -59,7 +59,7 @@ const ImageItem: FC<ImageItemProps> = ({
   );
 };
 
-const ImageGallery: FC<GalleryProps> = ({images = [], id, refresh}) => {
+const Editable: FC<GalleryProps> = ({images = [], id, refresh}) => {
   const styles = useTheme(themedStyles);
   const {show, hide} = useModal();
   const patch = usePatchData(ENDPOINTS.PROJECTS);
@@ -171,4 +171,4 @@ const ImageGallery: FC<GalleryProps> = ({images = [], id, refresh}) => {
   );
 };
 
-export default ImageGallery;
+export default Editable;
