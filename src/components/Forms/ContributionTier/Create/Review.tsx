@@ -7,6 +7,7 @@ import {useModal} from '../../../../hooks/useModal';
 import {usePostData} from '../../../../hooks/useQuery';
 import {FetchStatus} from '../../../../config/types';
 import {finalMessages} from '../../../../utils/modal';
+import {toBaseToken} from '../../../../utils/formatters';
 import {ButtonThemes} from '../../../Elements/Button/types';
 import {ENDPOINTS} from '../../../../config/endpoints';
 import FormSummary from '../../../FormElements/GenericSummary';
@@ -37,6 +38,7 @@ const CreateProjectReview = ({
       await mutation.mutateAsync({
         data: {
           ...data,
+          amount: toBaseToken(data.amount ?? ''),
           project,
         },
       });
