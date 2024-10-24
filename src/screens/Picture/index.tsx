@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import ImageView from "react-native-image-viewing";
+import ImageView from 'react-native-image-viewing';
 
 import {RouteParams} from '../../utils/types';
 import {SafeArea} from '../../components/Elements';
