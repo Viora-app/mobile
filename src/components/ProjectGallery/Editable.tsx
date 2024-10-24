@@ -59,7 +59,7 @@ const ImageItem: FC<ImageItemProps> = ({
   );
 };
 
-const ImageGallery: FC<GalleryProps> = ({images = [], id}) => {
+const ImageGallery: FC<GalleryProps> = ({images = [], id, refresh}) => {
   const styles = useTheme(themedStyles);
   const {show, hide} = useModal();
   const patch = usePatchData(ENDPOINTS.PROJECTS);
@@ -107,7 +107,7 @@ const ImageGallery: FC<GalleryProps> = ({images = [], id}) => {
           if (result.data) {
             feedback.status = FetchStatus.success;
             feedback.message = 'Your photos should be available soon';
-            // @refetch the project
+            refresh();
           }
 
           show({
@@ -144,7 +144,7 @@ const ImageGallery: FC<GalleryProps> = ({images = [], id}) => {
     await del.mutate({id: imageId});
     setIsLoading(false);
     if (result.data) {
-      // @todo refetch the project
+      refresh();
     }
   };
 

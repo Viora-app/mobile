@@ -18,7 +18,7 @@ import {
 import {ProjectStatus} from '../Projects/types';
 import {ActionsProps} from './types';
 
-const Actions: FC<ActionsProps> = ({owner, project}) => {
+const Actions: FC<ActionsProps> = ({owner, project, refresh}) => {
   const {show} = useModal();
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const {account} = useAccount();
@@ -65,7 +65,7 @@ const Actions: FC<ActionsProps> = ({owner, project}) => {
 
   return (
     <View>
-      {editable && <EditProject projectId={projectId} />}
+      {editable && <EditProject projectId={projectId} refresh={refresh} />}
 
       {published && ownerId === accountId ? (
         <PublishedProjectOwner
@@ -76,7 +76,12 @@ const Actions: FC<ActionsProps> = ({owner, project}) => {
       ) : null}
 
       {published && ownerId !== accountId ? (
-        <SupportProject project={project} account={account!} artist={owner} />
+        <SupportProject
+          project={project}
+          account={account!}
+          artist={owner}
+          refresh={refresh}
+        />
       ) : null}
 
       {succeeded && ownerId === accountId ? (

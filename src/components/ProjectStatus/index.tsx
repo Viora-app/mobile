@@ -1,23 +1,31 @@
 import {Image, Text, View} from 'react-native';
 import React, {FC} from 'react';
-import {Button} from '../Elements';
-import {ButtonThemes} from '../Elements/Button/types';
-import {usePatchData} from '../../hooks/useQuery';
+
+import {finalMessages} from '../../utils/modal';
+import {shareProjectInvitation} from '../../utils/shareMenu';
 import {ENDPOINTS} from '../../config/endpoints';
-import CreateContributionTierForm from '../Forms/ContributionTier/Create';
+import {FetchStatus} from '../../config/types';
+import {usePatchData} from '../../hooks/useQuery';
 import EditProjectForm from '../Forms/Project/Edit';
-import themedStyles from './styles';
 import {useModal} from '../../hooks/useModal';
 import {useTheme} from '../../hooks/useTheme';
-import Contribute from '../Forms/Project/Contribute';
+import CreateContributionTierForm from '../Forms/ContributionTier/Create';
 import PostExclusiveContentsForm from '../Forms/ExclusiveContents/create';
+import Contribute from '../Forms/Project/Contribute';
+import {Button} from '../Elements';
+import {ButtonThemes} from '../Elements/Button/types';
+import {ProjectStatus} from '../Projects/types';
+import themedStyles from './styles';
 import successImage from '../../assets/images/success.png';
 import errorImage from '../../assets/images/error.png';
-import {ProjectStatus} from '../Projects/types';
-import {DefaultProjectStatusProps, FullDataComponentProps} from './type';
-import {shareProjectInvitation} from '../../utils/shareMenu';
+import {
+  DefaultProjectStatusProps,
+  FullDataComponentProps,
+  PublishedProjectOwnerProps,
+  SuccessfulProjectOwnerProps,
+} from './type';
 
-const EditProject: FC<DefaultProjectStatusProps> = ({projectId}) => {
+const EditProject: FC<DefaultProjectStatusProps> = ({projectId, refresh}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();
@@ -43,12 +51,24 @@ const EditProject: FC<DefaultProjectStatusProps> = ({projectId}) => {
         'Once you go live, your fans will be able to contribute in your project. Please note that you will no longer be able to edit this project.',
       onPrimaryPress: async () => {
         try {
-          await mutation.mutate({
+          const result = await mutation.mutate({
             id: projectId,
             data: {
               status: ProjectStatus.Published,
             },
           });
+          const feedback = {
+            status: FetchStatus.error,
+            message: 'Failed to upload your images.',
+          };
+          if (result.data) {
+            feedback.status = FetchStatus.success;
+            feedback.message =
+              'Wonderful! now your project is available for fans to support.';
+          }
+
+          show(finalMessages(feedback));
+          refresh();
         } catch (e) {
           console.error('Error updating project status:', e);
         }
@@ -93,6 +113,7 @@ const SupportProject: FC<FullDataComponentProps> = ({
   account,
   project,
   artist,
+  refresh,
 }) => {
   const styles = useTheme(themedStyles);
   const {show} = useModal();
@@ -100,7 +121,7 @@ const SupportProject: FC<FullDataComponentProps> = ({
     show({
       title: 'Support art & culture',
       description: "You're about to make a difference",
-      content: <Contribute projectId={project.id} />,
+      content: <Contribute projectId={project.id} refresh={refresh} />,
     });
   };
 
@@ -132,7 +153,7 @@ const SupportProject: FC<FullDataComponentProps> = ({
   );
 };
 
-const PublishedProjectOwner: FC<FullDataComponentProps> = ({
+const PublishedProjectOwner: FC<PublishedProjectOwnerProps> = ({
   project,
   account,
   artist,
@@ -160,7 +181,9 @@ const PublishedProjectOwner: FC<FullDataComponentProps> = ({
   );
 };
 
-const SuccessfulProjectOwner: FC<DefaultProjectStatusProps> = ({projectId}) => {
+const SuccessfulProjectOwner: FC<SuccessfulProjectOwnerProps> = ({
+  projectId,
+}) => {
   const mutation = usePatchData(ENDPOINTS.PROJECTS);
   const styles = useTheme(themedStyles);
   const {show} = useModal();
