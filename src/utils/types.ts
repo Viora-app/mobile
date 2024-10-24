@@ -80,6 +80,7 @@ export interface RouteParams {
     params: Record<string, unknown> | undefined;
   };
   navigation: {
+    goBack: () => void;
     navigate: (
       params: string | {name: string; params?: Record<string, unknown>},
     ) => {};

@@ -38,7 +38,11 @@ export interface FundingProgressProps {
 
 export interface ReadableImageProps {
   index: number;
-  image: FileEvent;
+  image: {
+    attributes: {
+      formats: ImageFormats;
+    };
+  };
   style?: string;
 }
 
